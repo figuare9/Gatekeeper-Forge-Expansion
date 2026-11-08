@@ -1,0 +1,30 @@
+{
+  "reviewedUtc": "2026-11-07T22:15:57.178855+00:00",
+  "toolchain": "Microsoft .NET SDK 8.0.427; same Windows machine",
+  "components": [
+    {
+      "component": "Windows installer",
+      "sha256": "b342569ee4519adff63002f5666b7d341ec6876aab58d747d6197645b844fca3",
+      "bytes": 191226139,
+      "exactFreshBuildMatch": true
+    },
+    {
+      "component": "Custom gameplay plugin",
+      "sha256": "12b4ba2fb8435445ecc8bf24330312112268a77f099dbaf11cee8adb3401502c",
+      "bytes": 81824256,
+      "exactFreshBuildMatch": true
+    },
+    {
+      "component": "Balance plugin",
+      "sha256": "e5e16b21f3cd5769efededaecae6677acdb78f655abc8ec2bed9cd9f2a6c6276",
+      "bytes": 16896,
+      "exactFreshBuildMatch": true
+    },
+    {
+      "component": "Linux installer ELF",
+      "sha256": "17915217cc7a6bb65efdf92971561149de73c5790179f42eb1e2a78319e4adc5",
+      "bytes": 154196145,
+      "exactFreshBuildMatch": true
+    }
+  ]
+}

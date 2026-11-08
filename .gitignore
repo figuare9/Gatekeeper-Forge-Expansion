@@ -1,0 +1,26 @@
+# Generated/downloaded dependencies and build output
+.downloads/
+.verification/
+.legacy-review/
+tools/dotnet/
+tools/dotnet10/
+packages/loader/
+packages/mods/
+packages/portable-notices/
+packages/portable-payload.zip
+vendor/build-net10/
+**/bin/
+**/obj/
+**/__pycache__/
+app/
+portable-app/
+linux-app/
+release/
+*.user
+# Private game-derived inputs and personal data never belong in source control
+BepInEx/interop/
+GameAssembly.dll
+global-metadata.dat
+state/
+backups/
+*.log

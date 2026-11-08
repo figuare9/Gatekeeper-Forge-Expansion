@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Gatekeeper.CustomMods</AssemblyName><Version>0.15.4</Version><LangVersion>12</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Shared/AspectRules.cs" Link="AspectRules.cs" />
+    <EmbeddedResource Include="Assets/Aspects/*.png" LogicalName="Gatekeeper.CustomMods.Assets.Aspects.%(Filename)%(Extension)" />
+    <Reference Include="../../packages/loader/BepInEx/core/BepInEx.Core.dll"><Private>false</Private></Reference>
+    <Reference Include="../../packages/loader/BepInEx/core/BepInEx.Unity.IL2CPP.dll"><Private>false</Private></Reference>
+    <Reference Include="../../packages/loader/BepInEx/core/Il2CppInterop.Runtime.dll"><Private>false</Private></Reference>
+    <Reference Include="../../packages/loader/BepInEx/core/0Harmony.dll"><Private>false</Private></Reference>
+    <Reference Include="../../../BepInEx/interop/*.dll"><Private>false</Private></Reference>
+    <Compile Include="../Shared/CustomModRules.cs" Link="CustomModRules.cs" />
+    <Compile Include="../Shared/SlotRules.cs" Link="SlotRules.cs" />
+    <Compile Include="../Shared/SlotSoundTimeline.cs" Link="SlotSoundTimeline.cs" />
+    <Compile Include="../Shared/ExpansionPlaylist.cs" Link="ExpansionPlaylist.cs" />
+    <Compile Include="../Shared/ExchangeRules.cs" Link="ExchangeRules.cs" />
+    <Compile Include="../Shared/ModMessages.cs" Link="ModMessages.cs" />
+    <Compile Include="../Shared/CannonRules.cs" Link="CannonRules.cs" />
+    <EmbeddedResource Include="Assets/exchange-terminal.json" LogicalName="Gatekeeper.CustomMods.Assets.exchange-terminal.json" />
+    <EmbeddedResource Include="Assets/exchange-ui.json" LogicalName="Gatekeeper.CustomMods.Assets.exchange-ui.json" />
+    <EmbeddedResource Include="Assets/slot-machine.json" LogicalName="Gatekeeper.CustomMods.Assets.slot-machine.json" />
+    <EmbeddedResource Include="Assets/slot-*.png" Exclude="Assets/slot-rules.png" LogicalName="Gatekeeper.CustomMods.Assets.%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Assets/Audio/*.wav" LogicalName="Gatekeeper.CustomMods.Assets.Audio.%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Assets/Music/*" LogicalName="Gatekeeper.CustomMods.Assets.Music.%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Assets/cannon-wheel.*" LogicalName="Gatekeeper.CustomMods.Assets.%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup><Compile Include="../Shared/ForgeRules.cs" Link="ForgeRules.cs" /></ItemGroup>
+  <ItemGroup>
+    <Compile Include="../Shared/ForgeModel.cs" Link="ForgeModel.cs" />
+    <Compile Include="../Shared/ForgeLocomotion.cs" Link="ForgeLocomotion.cs" />
+    <EmbeddedResource Include="Assets/Forge/*" LogicalName="Gatekeeper.CustomMods.Assets.Forge.%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup><Compile Include="../Shared/ForgeTooltips.cs" Link="ForgeTooltips.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/AscendantRules.cs" Link="AscendantRules.cs" /><Compile Include="../Shared/ItemCapRules.cs" Link="ItemCapRules.cs" /><Compile Include="../Shared/ForgeUnlockRules.cs" Link="ForgeUnlockRules.cs" /></ItemGroup>
+</Project>

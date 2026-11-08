@@ -1,0 +1,307 @@
+[
+  {
+    "path": "src/GameMods/Assets/cannon-wheel.albedo.png",
+    "sha256": "740907618fe4e61a421b97b7499071ffeb62daca99d0a9eb81db241c90217f53",
+    "bytes": 3337754
+  },
+  {
+    "path": "src/GameMods/Assets/cannon-wheel.emission.png",
+    "sha256": "e6705fcb5e1185033246a2677b1e109ab54252b355bf941c7a6a59986dd07ec3",
+    "bytes": 93820
+  },
+  {
+    "path": "src/GameMods/Assets/cannon-wheel.json.gz",
+    "sha256": "82e862b761e86b179a9b906302b33f6724ff68d4aedcf65deb8f64d6fd475b88",
+    "bytes": 2053328
+  },
+  {
+    "path": "src/GameMods/Assets/cannon-wheel.metal-smooth.png",
+    "sha256": "976d19484a0f20591bda7ad41a0f0299940dd8f24fcd00ef7c4e9fb2426a66f3",
+    "bytes": 2651244
+  },
+  {
+    "path": "src/GameMods/Assets/cannon-wheel.normal.png",
+    "sha256": "426d42278c5a666bdc37db003da0e5cd8f75c269218632148b3c047fbebd76b3",
+    "bytes": 1548907
+  },
+  {
+    "path": "src/GameMods/Assets/cannon-wheel.occlusion.png",
+    "sha256": "5fd453dead52804a521f30b31caa07a06d795980c8e47c0e21c0fcbecaf202ce",
+    "bytes": 1586931
+  },
+  {
+    "path": "src/GameMods/Assets/cannon-wheel.png",
+    "sha256": "f53f55d30e63762516755ecdd6d98f2ea6d95825b7f6a0e8b0f523a856bf703b",
+    "bytes": 237698
+  },
+  {
+    "path": "src/GameMods/Assets/exchange-terminal.json",
+    "sha256": "64d59a9bddb688527016e3f51181b606bf689cfea14c598ef31d91cb9d65e929",
+    "bytes": 1486
+  },
+  {
+    "path": "src/GameMods/Assets/exchange-ui.json",
+    "sha256": "8ac739e496c34e51950b3ee875f3ad942b75ebcfd3d13cfb017fcfc5401c7239",
+    "bytes": 633
+  },
+  {
+    "path": "src/GameMods/Assets/slot-machine.json",
+    "sha256": "5bf6f3d7bb70398761602077575ffc7742eda4e11acafaf3d1eb4e0d57b6b257",
+    "bytes": 11752
+  },
+  {
+    "path": "src/GameMods/Assets/slot-marquee.png",
+    "sha256": "92ee9248fd689b0c38401dfd360d4d62cfc915ccc196b18440dba34d18490b87",
+    "bytes": 290739
+  },
+  {
+    "path": "src/GameMods/Assets/slot-metal.png",
+    "sha256": "74f99a62cab6e7af2930937a78e36d028738a98ca94474448cfdcd241259fa85",
+    "bytes": 175345
+  },
+  {
+    "path": "src/GameMods/Assets/slot-reels.png",
+    "sha256": "563904dc40204c87bc443b6e6044623f8d8751c782a84fe569144d77e29f4f58",
+    "bytes": 10960
+  },
+  {
+    "path": "src/GameMods/Assets/slot-rules.png",
+    "sha256": "a3288bd4b6a27fc5d7d49fe1318f6d7e339a1c0bc1601dcb0b26629bc1184265",
+    "bytes": 299046
+  },
+  {
+    "path": "src/GameMods/Assets/Aspects/aspect-chaos.png",
+    "sha256": "1d1a85e3f64139a045aa3f2dfa2a7c05a2cd84e90e4c5a2b3979404618a9837d",
+    "bytes": 33492
+  },
+  {
+    "path": "src/GameMods/Assets/Aspects/aspect-elite.png",
+    "sha256": "0219c5ff8d7d51f676cba74ee42cc0b94639937b6da61ad0df3d70fb40089ab3",
+    "bytes": 25773
+  },
+  {
+    "path": "src/GameMods/Assets/Aspects/aspect-scaling.png",
+    "sha256": "9a14f0489cf0ff705d6d80742481e73824a721fa3469f0d6468f7f1c033fa9ae",
+    "bytes": 21620
+  },
+  {
+    "path": "src/GameMods/Assets/Audio/slot-cycle.wav",
+    "sha256": "5daa7033d99b09faebf4f325d977f293e1d1a4cf125aee6c62abae5576eea8e8",
+    "bytes": 905166
+  },
+  {
+    "path": "src/GameMods/Assets/Audio/slot-lever.wav",
+    "sha256": "9e1e47f281bf57513b18d15c04dce3f0307d1b05657690dbea2bf7a797a3e139",
+    "bytes": 119886
+  },
+  {
+    "path": "src/GameMods/Assets/Audio/slot-number-land.wav",
+    "sha256": "ff408632f521f7b89becb2913425260c8d6641c1adc0c8044d43fa014e7dd026",
+    "bytes": 121230
+  },
+  {
+    "path": "src/GameMods/Assets/Audio/slot-win.wav",
+    "sha256": "e847df64ba80b714769fe07d8f5e36e607bce85dd8ea176ef7fbdbf58627b640",
+    "bytes": 629070
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/body-albedo.png",
+    "sha256": "e0c2bd815d6a504f2b7d1d4a286cd533ebc99d5d07fefc8fc121ecec50cacd07",
+    "bytes": 4180763
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/body-emission.png",
+    "sha256": "9ae7d6e31f218f1ce6aae9a14947dfe8129ff4c219195a5f1f06267436c9a85d",
+    "bytes": 257053
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/body-metal-smooth.png",
+    "sha256": "24b56d69cec3ab5c09eb26cf65a326fda5501ee7d63cf587c9c82d5cb249a5f5",
+    "bytes": 2288893
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/body-normal.png",
+    "sha256": "d0d9a0c015f6d21dc63d65620496734c9f1b2a8a29cc69e03e3838e98200f909",
+    "bytes": 2349278
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-ability-aegis.png",
+    "sha256": "419cc9dde7177e480fbb566bbabad819b4b030288406ef95b59460141390b9cb",
+    "bytes": 98463
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-ability-charge.png",
+    "sha256": "8dc596b7b5c2abdb90957bdab1f3b27faedffb13a7b60241b769ec69fccd87d7",
+    "bytes": 109298
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-ability-feedback.png",
+    "sha256": "07ba91a642e6a765a9d0abbbb8184c8824aa7b27c9f3815a9714f588aae62ab5",
+    "bytes": 110382
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-ability-rivet.png",
+    "sha256": "a862dad32058fb2464dd65a40f8527ce5d40ece40d0d4847651679f50f235439",
+    "bytes": 103800
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-ability-sentry.png",
+    "sha256": "c3f419f1f8c8733e2b8604983631e29e5739860ac247190117d17db6084273eb",
+    "bytes": 94804
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-aegis-rig.json.gz",
+    "sha256": "988d2375cd023e6082bac46bd2a6b1a6c26a6cbad5060ebb6e51bdf4bc962306",
+    "bytes": 17543
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-character.json.gz",
+    "sha256": "61423eefe8741266b2792ce285970b68c91eb8a512d561a7d9269faff41478a5",
+    "bytes": 2338517
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-charge-rig.json.gz",
+    "sha256": "7583194c24e9ab8b4608d44b7ca7eb64509f4aab59122863bacad3fffc098177",
+    "bytes": 31372
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-fx-flash.png",
+    "sha256": "51399605eb581a37ba2fb9de9b732cb96c823cc143d19ebd4fefaa023af375c3",
+    "bytes": 2776
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-fx-smoke.png",
+    "sha256": "aa60ebb6c5b10b2a1d4032373179d63522da70e3fc79d09848b7f23a05b756a6",
+    "bytes": 7936
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-fx-spark.png",
+    "sha256": "0f0b64a607beae056a2cd37c3275be5a0da042e27d5ba02dfaa5f5bb9bec2739",
+    "bytes": 1519
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-lever-albedo.png",
+    "sha256": "74ff5d5834dbb8ecdb2f72fba4ba048af55598733fa17b43191a3805f426c389",
+    "bytes": 767147
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-lever-emission.png",
+    "sha256": "0e27685c2d736a91a52747115eaf64fe87d983b18e8e3edc9d6a952920e6fdfe",
+    "bytes": 21098
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-lever-metal-smooth.png",
+    "sha256": "df4fb6b8f643fa1a5d9231e8fffa5bbd57e9dc37a8dbdf096e758bbe4514e734",
+    "bytes": 606922
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-lever-normal.png",
+    "sha256": "363e9adbd775660781d4910ddffbcee14553d68b301aec4c0d27c346b76e175a",
+    "bytes": 365472
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-lever.json.gz",
+    "sha256": "01949c10d3c63015363cf026a3e0793c5d0c52109cc7d864f2ec43c1a1407e2c",
+    "bytes": 184819
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-portrait.png",
+    "sha256": "fed56ae5cc0cefb7240209b1304350665ec034335b47d5190972d371a960d6a4",
+    "bytes": 1429041
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-rivet.json",
+    "sha256": "511ed1b49cfdedab37be5490c3240c4560f7fe3d063316e85bbef9a32c2e8d0f",
+    "bytes": 101763
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/forge-sentry-rig.json.gz",
+    "sha256": "a95f04b33d66f7da55867937ddb7f09dd12a5dd5bdeeb53fb5ce30ac1dbc0ad7",
+    "bytes": 684689
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/gun-albedo.png",
+    "sha256": "c420ffb65bf347ca054d72442ecd557a8f2132f2631bb96a6bc96fb0be1b03b9",
+    "bytes": 3511809
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/gun-emission.png",
+    "sha256": "d53aed31de5827deacd9bdccea2336a4a1e26c28ffc0b8826601dce28b92cbc5",
+    "bytes": 139641
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/gun-metal-smooth.png",
+    "sha256": "294b2cedc24b5554c310cb68452ddce0e2b1d6f8f4bfcf2186e7d6ae0200be3b",
+    "bytes": 1822424
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/gun-normal.png",
+    "sha256": "c50245cf5a079759a6b14484e4004e402bb092b0f58ef99d0cb0dcdde8728072",
+    "bytes": 2181533
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/rivet-albedo.png",
+    "sha256": "b7dd4499fd36a8e28550f8feb7a57a11d80085b955bc6f28bae9ffc0bfc3965d",
+    "bytes": 1447725
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/sentry-albedo.png",
+    "sha256": "dcd280589c96b64ea18eb4c4c7bb61997f51700a525361196d1ce2ca6aee40fb",
+    "bytes": 4255345
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/sentry-emission.png",
+    "sha256": "dcc5353d974a7bfe451197e44ee298320a36fcd5bebffa0e4855adba3842f93f",
+    "bytes": 423007
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/sentry-metal-smooth.png",
+    "sha256": "6449bb9c279b282edd70551d4c839b13d0636cfb9e80693002f942d2a9631af2",
+    "bytes": 3740619
+  },
+  {
+    "path": "src/GameMods/Assets/Forge/sentry-normal.png",
+    "sha256": "1a26c77c0e0319f36984643e765d8bd9b8c801a6aa99a9b47bf0f00b0d0eb454",
+    "bytes": 1301037
+  },
+  {
+    "path": "src/GameMods/Assets/Music/forge-song-1.ogg",
+    "sha256": "98a423f73aab0a3ff680b67623dfa70a841673885068ca242c086bc17c77741d",
+    "bytes": 4695273
+  },
+  {
+    "path": "src/GameMods/Assets/Music/forge-song-2.ogg",
+    "sha256": "d626501d40286253b7d8b2f08441aa8138217e24aa65f728cddc0bc0219682a3",
+    "bytes": 7750202
+  },
+  {
+    "path": "src/GameMods/Assets/Music/forge-song-3.ogg",
+    "sha256": "911107385d5e3a15fd8efdda531f949cc3f838c03d165e36bc7ce1a830d234f1",
+    "bytes": 3760242
+  },
+  {
+    "path": "src/GameMods/Assets/Music/forge-song-4.ogg",
+    "sha256": "28c77fc3fd75d3c516f07a48838b005540541ad4c9fbd10844fc3aa338373a62",
+    "bytes": 4403466
+  },
+  {
+    "path": "src/GameMods/Assets/Music/forge-song-5.ogg",
+    "sha256": "8ae7ef340e805e6294d4eb511a6859094b9ff98d949c1926e9c412b4a486b36b",
+    "bytes": 4121953
+  },
+  {
+    "path": "src/GameMods/Assets/Music/forge-song-6.ogg",
+    "sha256": "74c7f4464409b1d3b76b9411709201438029cdc48bf94df06f7d9e0e56919d65",
+    "bytes": 3685139
+  },
+  {
+    "path": "src/GameMods/Assets/Music/forge-song-7.ogg",
+    "sha256": "d2f0fdebf7637056959b4f34700b69a18df4717f29e6019154be376bd252f7b3",
+    "bytes": 4123113
+  },
+  {
+    "path": "src/GameMods/Assets/Music/tracks.json",
+    "sha256": "e2427aa9198dcfffed93f6d573f373dbf4469cbb8bd8853cf26e6c8129fbfc61",
+    "bytes": 5229
+  }
+]

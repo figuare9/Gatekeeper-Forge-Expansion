@@ -1,0 +1,40 @@
+{
+  "format": 1,
+  "metadataSource": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
+  "files": {
+    "runtime10": {
+      "name": "dotnet-runtime-win-x64.zip",
+      "rid": "win-x64",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.14/dotnet-runtime-10.0.14-win-x64.zip",
+      "hash": "a176095f1db69b42c81acc60940744078d6bf2d2ac643e418342aa9c81889f4bd13e42f4621b131f9e77e4bc781ad46e375956219df9a4f979031d2a5a8d93cd",
+      "algorithm": "sha512",
+      "version": "10.0.14"
+    },
+    "sdk10": {
+      "name": "dotnet-sdk-win-x64.zip",
+      "rid": "win-x64",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.403/dotnet-sdk-10.0.403-win-x64.zip",
+      "hash": "7a114c318fa7f1d9822991b534b2814d0e78386ceda816b371f5141acefe741d87ccb606ede06cadac8f9ac5070e32b708a67bbd1619ff5e5a7858a27874ef48",
+      "algorithm": "sha512",
+      "version": "10.0.403"
+    },
+    "sdk8": {
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/8.0.427/dotnet-sdk-8.0.427-win-x64.zip",
+      "hash": "a4dd6eb2bf2a2f6fb10997d3e044a229b23ad96a5c86d20494687e34ee73b537d7bd14488ce14cded6917f6778da4d66360e2734020b7ef487d0f29ab144489d",
+      "algorithm": "sha512",
+      "version": "8.0.427"
+    },
+    "loader": {
+      "url": "https://builds.bepinex.dev/projects/bepinex_be/791/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.791+b782da4.zip",
+      "hash": "bb1c510909b69522733791f3a0817a487379a52da6468a492f1c9c19b3ec6f9a",
+      "algorithm": "sha256",
+      "version": "6.0.0-be.791+b782da4"
+    },
+    "unity": {
+      "url": "https://unity.bepinex.dev/libraries/2022.3.62.zip",
+      "hash": "575e7d600f69de8200ccf4db700b3ae6252366c22e8c3434c860e428974518d1",
+      "algorithm": "sha256",
+      "version": "2022.3.62"
+    }
+  }
+}

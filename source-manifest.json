@@ -1,0 +1,789 @@
+{
+  "format": 1,
+  "installer": "0.15.5",
+  "gameplay": "0.15.4",
+  "protocol": 12,
+  "scope": "First-party source/project files and embedded runtime assets; raw bytes preserved by root Git attributes.",
+  "files": [
+    {
+      "path": "src/GameMods/AscendantDifficulty.cs",
+      "bytes": 13575,
+      "sha256": "dd9c0bf0292239bc0630c834d22d973a13eee414360e3b7977d573f164b16fb1"
+    },
+    {
+      "path": "src/GameMods/AspectGameplay.cs",
+      "bytes": 9081,
+      "sha256": "50bdfbc355557e9878b54fa72d578188e9041e5a1bac9d145206d1ed64a2fa79"
+    },
+    {
+      "path": "src/GameMods/AspectRegistry.cs",
+      "bytes": 11204,
+      "sha256": "58a7512de583962914f24c3ae54b2e43338a6b8033327f6303ec7d86021e5c62"
+    },
+    {
+      "path": "src/GameMods/Assets/Aspects/aspect-chaos.png",
+      "bytes": 33492,
+      "sha256": "1d1a85e3f64139a045aa3f2dfa2a7c05a2cd84e90e4c5a2b3979404618a9837d"
+    },
+    {
+      "path": "src/GameMods/Assets/Aspects/aspect-elite.png",
+      "bytes": 25773,
+      "sha256": "0219c5ff8d7d51f676cba74ee42cc0b94639937b6da61ad0df3d70fb40089ab3"
+    },
+    {
+      "path": "src/GameMods/Assets/Aspects/aspect-scaling.png",
+      "bytes": 21620,
+      "sha256": "9a14f0489cf0ff705d6d80742481e73824a721fa3469f0d6468f7f1c033fa9ae"
+    },
+    {
+      "path": "src/GameMods/Assets/Audio/slot-cycle.wav",
+      "bytes": 905166,
+      "sha256": "5daa7033d99b09faebf4f325d977f293e1d1a4cf125aee6c62abae5576eea8e8"
+    },
+    {
+      "path": "src/GameMods/Assets/Audio/slot-lever.wav",
+      "bytes": 119886,
+      "sha256": "9e1e47f281bf57513b18d15c04dce3f0307d1b05657690dbea2bf7a797a3e139"
+    },
+    {
+      "path": "src/GameMods/Assets/Audio/slot-number-land.wav",
+      "bytes": 121230,
+      "sha256": "ff408632f521f7b89becb2913425260c8d6641c1adc0c8044d43fa014e7dd026"
+    },
+    {
+      "path": "src/GameMods/Assets/Audio/slot-win.wav",
+      "bytes": 629070,
+      "sha256": "e847df64ba80b714769fe07d8f5e36e607bce85dd8ea176ef7fbdbf58627b640"
+    },
+    {
+      "path": "src/GameMods/Assets/cannon-wheel.albedo.png",
+      "bytes": 3337754,
+      "sha256": "740907618fe4e61a421b97b7499071ffeb62daca99d0a9eb81db241c90217f53"
+    },
+    {
+      "path": "src/GameMods/Assets/cannon-wheel.emission.png",
+      "bytes": 93820,
+      "sha256": "e6705fcb5e1185033246a2677b1e109ab54252b355bf941c7a6a59986dd07ec3"
+    },
+    {
+      "path": "src/GameMods/Assets/cannon-wheel.json.gz",
+      "bytes": 2053328,
+      "sha256": "82e862b761e86b179a9b906302b33f6724ff68d4aedcf65deb8f64d6fd475b88"
+    },
+    {
+      "path": "src/GameMods/Assets/cannon-wheel.metal-smooth.png",
+      "bytes": 2651244,
+      "sha256": "976d19484a0f20591bda7ad41a0f0299940dd8f24fcd00ef7c4e9fb2426a66f3"
+    },
+    {
+      "path": "src/GameMods/Assets/cannon-wheel.normal.png",
+      "bytes": 1548907,
+      "sha256": "426d42278c5a666bdc37db003da0e5cd8f75c269218632148b3c047fbebd76b3"
+    },
+    {
+      "path": "src/GameMods/Assets/cannon-wheel.occlusion.png",
+      "bytes": 1586931,
+      "sha256": "5fd453dead52804a521f30b31caa07a06d795980c8e47c0e21c0fcbecaf202ce"
+    },
+    {
+      "path": "src/GameMods/Assets/cannon-wheel.png",
+      "bytes": 237698,
+      "sha256": "f53f55d30e63762516755ecdd6d98f2ea6d95825b7f6a0e8b0f523a856bf703b"
+    },
+    {
+      "path": "src/GameMods/Assets/exchange-terminal.json",
+      "bytes": 1486,
+      "sha256": "64d59a9bddb688527016e3f51181b606bf689cfea14c598ef31d91cb9d65e929"
+    },
+    {
+      "path": "src/GameMods/Assets/exchange-ui.json",
+      "bytes": 633,
+      "sha256": "8ac739e496c34e51950b3ee875f3ad942b75ebcfd3d13cfb017fcfc5401c7239"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/body-albedo.png",
+      "bytes": 4180763,
+      "sha256": "e0c2bd815d6a504f2b7d1d4a286cd533ebc99d5d07fefc8fc121ecec50cacd07"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/body-emission.png",
+      "bytes": 257053,
+      "sha256": "9ae7d6e31f218f1ce6aae9a14947dfe8129ff4c219195a5f1f06267436c9a85d"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/body-metal-smooth.png",
+      "bytes": 2288893,
+      "sha256": "24b56d69cec3ab5c09eb26cf65a326fda5501ee7d63cf587c9c82d5cb249a5f5"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/body-normal.png",
+      "bytes": 2349278,
+      "sha256": "d0d9a0c015f6d21dc63d65620496734c9f1b2a8a29cc69e03e3838e98200f909"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-ability-aegis.png",
+      "bytes": 98463,
+      "sha256": "419cc9dde7177e480fbb566bbabad819b4b030288406ef95b59460141390b9cb"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-ability-charge.png",
+      "bytes": 109298,
+      "sha256": "8dc596b7b5c2abdb90957bdab1f3b27faedffb13a7b60241b769ec69fccd87d7"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-ability-feedback.png",
+      "bytes": 110382,
+      "sha256": "07ba91a642e6a765a9d0abbbb8184c8824aa7b27c9f3815a9714f588aae62ab5"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-ability-rivet.png",
+      "bytes": 103800,
+      "sha256": "a862dad32058fb2464dd65a40f8527ce5d40ece40d0d4847651679f50f235439"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-ability-sentry.png",
+      "bytes": 94804,
+      "sha256": "c3f419f1f8c8733e2b8604983631e29e5739860ac247190117d17db6084273eb"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-aegis-rig.json.gz",
+      "bytes": 17543,
+      "sha256": "988d2375cd023e6082bac46bd2a6b1a6c26a6cbad5060ebb6e51bdf4bc962306"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-character.json.gz",
+      "bytes": 2338517,
+      "sha256": "61423eefe8741266b2792ce285970b68c91eb8a512d561a7d9269faff41478a5"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-charge-rig.json.gz",
+      "bytes": 31372,
+      "sha256": "7583194c24e9ab8b4608d44b7ca7eb64509f4aab59122863bacad3fffc098177"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-fx-flash.png",
+      "bytes": 2776,
+      "sha256": "51399605eb581a37ba2fb9de9b732cb96c823cc143d19ebd4fefaa023af375c3"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-fx-smoke.png",
+      "bytes": 7936,
+      "sha256": "aa60ebb6c5b10b2a1d4032373179d63522da70e3fc79d09848b7f23a05b756a6"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-fx-spark.png",
+      "bytes": 1519,
+      "sha256": "0f0b64a607beae056a2cd37c3275be5a0da042e27d5ba02dfaa5f5bb9bec2739"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-lever-albedo.png",
+      "bytes": 767147,
+      "sha256": "74ff5d5834dbb8ecdb2f72fba4ba048af55598733fa17b43191a3805f426c389"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-lever-emission.png",
+      "bytes": 21098,
+      "sha256": "0e27685c2d736a91a52747115eaf64fe87d983b18e8e3edc9d6a952920e6fdfe"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-lever-metal-smooth.png",
+      "bytes": 606922,
+      "sha256": "df4fb6b8f643fa1a5d9231e8fffa5bbd57e9dc37a8dbdf096e758bbe4514e734"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-lever-normal.png",
+      "bytes": 365472,
+      "sha256": "363e9adbd775660781d4910ddffbcee14553d68b301aec4c0d27c346b76e175a"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-lever.json.gz",
+      "bytes": 184819,
+      "sha256": "01949c10d3c63015363cf026a3e0793c5d0c52109cc7d864f2ec43c1a1407e2c"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-portrait.png",
+      "bytes": 1429041,
+      "sha256": "fed56ae5cc0cefb7240209b1304350665ec034335b47d5190972d371a960d6a4"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-rivet.json",
+      "bytes": 101763,
+      "sha256": "511ed1b49cfdedab37be5490c3240c4560f7fe3d063316e85bbef9a32c2e8d0f"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/forge-sentry-rig.json.gz",
+      "bytes": 684689,
+      "sha256": "a95f04b33d66f7da55867937ddb7f09dd12a5dd5bdeeb53fb5ce30ac1dbc0ad7"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/gun-albedo.png",
+      "bytes": 3511809,
+      "sha256": "c420ffb65bf347ca054d72442ecd557a8f2132f2631bb96a6bc96fb0be1b03b9"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/gun-emission.png",
+      "bytes": 139641,
+      "sha256": "d53aed31de5827deacd9bdccea2336a4a1e26c28ffc0b8826601dce28b92cbc5"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/gun-metal-smooth.png",
+      "bytes": 1822424,
+      "sha256": "294b2cedc24b5554c310cb68452ddce0e2b1d6f8f4bfcf2186e7d6ae0200be3b"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/gun-normal.png",
+      "bytes": 2181533,
+      "sha256": "c50245cf5a079759a6b14484e4004e402bb092b0f58ef99d0cb0dcdde8728072"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/rivet-albedo.png",
+      "bytes": 1447725,
+      "sha256": "b7dd4499fd36a8e28550f8feb7a57a11d80085b955bc6f28bae9ffc0bfc3965d"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/sentry-albedo.png",
+      "bytes": 4255345,
+      "sha256": "dcd280589c96b64ea18eb4c4c7bb61997f51700a525361196d1ce2ca6aee40fb"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/sentry-emission.png",
+      "bytes": 423007,
+      "sha256": "dcc5353d974a7bfe451197e44ee298320a36fcd5bebffa0e4855adba3842f93f"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/sentry-metal-smooth.png",
+      "bytes": 3740619,
+      "sha256": "6449bb9c279b282edd70551d4c839b13d0636cfb9e80693002f942d2a9631af2"
+    },
+    {
+      "path": "src/GameMods/Assets/Forge/sentry-normal.png",
+      "bytes": 1301037,
+      "sha256": "1a26c77c0e0319f36984643e765d8bd9b8c801a6aa99a9b47bf0f00b0d0eb454"
+    },
+    {
+      "path": "src/GameMods/Assets/Music/forge-song-1.ogg",
+      "bytes": 4695273,
+      "sha256": "98a423f73aab0a3ff680b67623dfa70a841673885068ca242c086bc17c77741d"
+    },
+    {
+      "path": "src/GameMods/Assets/Music/forge-song-2.ogg",
+      "bytes": 7750202,
+      "sha256": "d626501d40286253b7d8b2f08441aa8138217e24aa65f728cddc0bc0219682a3"
+    },
+    {
+      "path": "src/GameMods/Assets/Music/forge-song-3.ogg",
+      "bytes": 3760242,
+      "sha256": "911107385d5e3a15fd8efdda531f949cc3f838c03d165e36bc7ce1a830d234f1"
+    },
+    {
+      "path": "src/GameMods/Assets/Music/forge-song-4.ogg",
+      "bytes": 4403466,
+      "sha256": "28c77fc3fd75d3c516f07a48838b005540541ad4c9fbd10844fc3aa338373a62"
+    },
+    {
+      "path": "src/GameMods/Assets/Music/forge-song-5.ogg",
+      "bytes": 4121953,
+      "sha256": "8ae7ef340e805e6294d4eb511a6859094b9ff98d949c1926e9c412b4a486b36b"
+    },
+    {
+      "path": "src/GameMods/Assets/Music/forge-song-6.ogg",
+      "bytes": 3685139,
+      "sha256": "74c7f4464409b1d3b76b9411709201438029cdc48bf94df06f7d9e0e56919d65"
+    },
+    {
+      "path": "src/GameMods/Assets/Music/forge-song-7.ogg",
+      "bytes": 4123113,
+      "sha256": "d2f0fdebf7637056959b4f34700b69a18df4717f29e6019154be376bd252f7b3"
+    },
+    {
+      "path": "src/GameMods/Assets/Music/tracks.json",
+      "bytes": 5229,
+      "sha256": "e2427aa9198dcfffed93f6d573f373dbf4469cbb8bd8853cf26e6c8129fbfc61"
+    },
+    {
+      "path": "src/GameMods/Assets/slot-machine.json",
+      "bytes": 11752,
+      "sha256": "5bf6f3d7bb70398761602077575ffc7742eda4e11acafaf3d1eb4e0d57b6b257"
+    },
+    {
+      "path": "src/GameMods/Assets/slot-marquee.png",
+      "bytes": 290739,
+      "sha256": "92ee9248fd689b0c38401dfd360d4d62cfc915ccc196b18440dba34d18490b87"
+    },
+    {
+      "path": "src/GameMods/Assets/slot-metal.png",
+      "bytes": 175345,
+      "sha256": "74f99a62cab6e7af2930937a78e36d028738a98ca94474448cfdcd241259fa85"
+    },
+    {
+      "path": "src/GameMods/Assets/slot-reels.png",
+      "bytes": 10960,
+      "sha256": "563904dc40204c87bc443b6e6044623f8d8751c782a84fe569144d77e29f4f58"
+    },
+    {
+      "path": "src/GameMods/Assets/slot-rules.png",
+      "bytes": 299046,
+      "sha256": "a3288bd4b6a27fc5d7d49fe1318f6d7e339a1c0bc1601dcb0b26629bc1184265"
+    },
+    {
+      "path": "src/GameMods/CabinetPresentation.cs",
+      "bytes": 3541,
+      "sha256": "47d665c4d4935f9b90c9e6da6e003fcfdf3748b596c9712117812806c0fe3338"
+    },
+    {
+      "path": "src/GameMods/CannonArt.cs",
+      "bytes": 12244,
+      "sha256": "2773de83c95abc4e31e5c77ed0b266ffa15dca7d20127808e32ef9eca2c45674"
+    },
+    {
+      "path": "src/GameMods/CannonCatalog.cs",
+      "bytes": 9205,
+      "sha256": "a2e7541997474241d06c21ade761791f1eaaf4e314696c4c58eb3304af986031"
+    },
+    {
+      "path": "src/GameMods/CannonFollower.cs",
+      "bytes": 5962,
+      "sha256": "fc73ba3e21af8d2c57e79714ca7c74fe065dd5558d3c119f76da06897d44825d"
+    },
+    {
+      "path": "src/GameMods/CannonProgress.cs",
+      "bytes": 5804,
+      "sha256": "5a695872ecd41cb4db28bfa2c530dd5e07ad7b7c4eea6f69f9b0a606a8fbc7ea"
+    },
+    {
+      "path": "src/GameMods/CannonRegistry.cs",
+      "bytes": 7202,
+      "sha256": "e58a3ae9d35b7b89f9c4fe0f994d909566d1acd0105aa504b8676102275376de"
+    },
+    {
+      "path": "src/GameMods/CannonWorld.cs",
+      "bytes": 17403,
+      "sha256": "f1f66578c1e86b2ae19b7915ffdc166bb9e52319aede06a045575fae0b4a3ee7"
+    },
+    {
+      "path": "src/GameMods/ExchangeAuthority.cs",
+      "bytes": 11405,
+      "sha256": "78b9d6887446d2023d69b2101ab5a237d650a7c5ac721d5a6d53212e6ef09779"
+    },
+    {
+      "path": "src/GameMods/ExchangeClient.cs",
+      "bytes": 9866,
+      "sha256": "33b054045d86d235b9447314b53a067d8a5a891b4ee2ab1ca1512835b84320e4"
+    },
+    {
+      "path": "src/GameMods/ExchangePricing.cs",
+      "bytes": 2037,
+      "sha256": "59486e848e40a4b5c08ba52deeba583aea03fd102b8f77170152b68020d4a5a6"
+    },
+    {
+      "path": "src/GameMods/ExchangeSales.cs",
+      "bytes": 14496,
+      "sha256": "83f22fbeaa7a53c46fa80d9d85fd5c5af86d5ad47edf58234a2f8883c76a0432"
+    },
+    {
+      "path": "src/GameMods/ExpansionMusic.cs",
+      "bytes": 10740,
+      "sha256": "7fe3cc62417eabd91ba9766757f666654d02f3424669542088cce4704c1fcaae"
+    },
+    {
+      "path": "src/GameMods/ForgeArt.cs",
+      "bytes": 14316,
+      "sha256": "78e61b57286cd26f5147a88b92b898e9edcf5b01305a50bea4d53b5d282e02f5"
+    },
+    {
+      "path": "src/GameMods/ForgeAvatar.cs",
+      "bytes": 31864,
+      "sha256": "bb19c8c00df337a0134a93d6e7892a5324b38397a55a92c74a047d26834683e3"
+    },
+    {
+      "path": "src/GameMods/ForgeBallistics.cs",
+      "bytes": 8187,
+      "sha256": "39d649882582203d1d9b1e8e0eb7640c8a30ab1e6ff82d129ea7f9ae0a88189d"
+    },
+    {
+      "path": "src/GameMods/ForgeDevices.cs",
+      "bytes": 14599,
+      "sha256": "d0f46b17def6ff90f375475df8299c46ddf0556e462e302c8a6730b86dd7d451"
+    },
+    {
+      "path": "src/GameMods/ForgeEquipment.cs",
+      "bytes": 18039,
+      "sha256": "9c189bde0ecde450ffdb116cdfed3b2a404dc4022f9d75dd8b0fdb6314b06327"
+    },
+    {
+      "path": "src/GameMods/ForgeHealing.cs",
+      "bytes": 2426,
+      "sha256": "e6956f488b8a00b6d2102c6106075718dca9043f3c01f0856619d70be7468467"
+    },
+    {
+      "path": "src/GameMods/ForgeInput.cs",
+      "bytes": 11213,
+      "sha256": "2b6a467c1b7a35ad0798a12415c97e18291ee95cde60be92c384ade7832f0b19"
+    },
+    {
+      "path": "src/GameMods/ForgeLeverArt.cs",
+      "bytes": 6642,
+      "sha256": "7cbf5959bc57052307bbf4e4d4df17c5e00b9938498ff18d9a8a13202c2ac11b"
+    },
+    {
+      "path": "src/GameMods/ForgeLobby.cs",
+      "bytes": 8371,
+      "sha256": "cc657cd46daa5ef25e17ad9a40cc514619fd8d3f7c523884f3470236c5437562"
+    },
+    {
+      "path": "src/GameMods/ForgePassives.cs",
+      "bytes": 3374,
+      "sha256": "61810e9aa6d6d2ca9b3b5aaef649c6ea5f04531abd1f5efdd09095886359f36e"
+    },
+    {
+      "path": "src/GameMods/ForgeRegistry.cs",
+      "bytes": 23002,
+      "sha256": "f6e2448fb46264438c039739e77c890d8e1b846d64aa0fcd6281e04977d5faaf"
+    },
+    {
+      "path": "src/GameMods/ForgeRivetPool.cs",
+      "bytes": 4925,
+      "sha256": "c5dba8213dec752ad261669b3dc6f5c68de8ee4da4a191f83f5bf19d82249d0c"
+    },
+    {
+      "path": "src/GameMods/ForgeSeekers.cs",
+      "bytes": 7359,
+      "sha256": "46ba0e434f1ba62811ce0f0a29a5c9a55b5ad25063011032a7405c2a852c1573"
+    },
+    {
+      "path": "src/GameMods/ForgeShield.cs",
+      "bytes": 8903,
+      "sha256": "b7d7618688b75f94dcbb2bbc25e096f26250135d7ea517b07c0508858c3ce547"
+    },
+    {
+      "path": "src/GameMods/ForgeShotFx.cs",
+      "bytes": 7497,
+      "sha256": "db8a4a16217d6a52af265a2822b84831a45f31610e78c1ad05360acff5084849"
+    },
+    {
+      "path": "src/GameMods/ForgeUnlock.cs",
+      "bytes": 12998,
+      "sha256": "94d2114d63eb6d2f2e22924a0bde0f9ab621547d1a771ea95abed1f6b1918e94"
+    },
+    {
+      "path": "src/GameMods/ForgeWorld.cs",
+      "bytes": 34571,
+      "sha256": "ba40237f2e03910cb9037d6833b10e143d962efb11d7f20f2bf94c23ba939957"
+    },
+    {
+      "path": "src/GameMods/GameMods.csproj",
+      "bytes": 3315,
+      "sha256": "bfe9d17603f98b640ef0f19b3e91ed7a2552438230d7fcdfa6eaf40bef169958"
+    },
+    {
+      "path": "src/GameMods/GameWorldIndex.cs",
+      "bytes": 1706,
+      "sha256": "042d6149074104cca5dc20dcea852cea4cd7cb973983c70760da0f593394de98"
+    },
+    {
+      "path": "src/GameMods/ItemCaps.cs",
+      "bytes": 4157,
+      "sha256": "d9e7a38ba85906d4351b09b0bcbcd824c59f36ce03820735200f1cddf968ec0d"
+    },
+    {
+      "path": "src/GameMods/Plugin.cs",
+      "bytes": 7693,
+      "sha256": "4920693314ca98733be32ba6cc89e19dd953ca60298cb00cf0232cc6d791fb51"
+    },
+    {
+      "path": "src/GameMods/ShopBehaviour.cs",
+      "bytes": 3598,
+      "sha256": "7e9e7201c2a335112d12d5e627adf04f8f7b55420c5948f51f1b2606842e6ba1"
+    },
+    {
+      "path": "src/GameMods/ShopUI.Controller.cs",
+      "bytes": 4538,
+      "sha256": "066f2f5a5b3f9a7c2cd85d35f5f952e7f91953726cd91bd36d3ffe4ff3596333"
+    },
+    {
+      "path": "src/GameMods/ShopUI.cs",
+      "bytes": 24758,
+      "sha256": "9a9196779ba96a96c2339a73959ccafc04568c7b8bd73a20b0671926721efed0"
+    },
+    {
+      "path": "src/GameMods/ShopWallet.cs",
+      "bytes": 1813,
+      "sha256": "1a4814d3380ed11df33bd0ddc061e0783346e5abee7498c605f8683803aadbbe"
+    },
+    {
+      "path": "src/GameMods/SlotAudio.cs",
+      "bytes": 7225,
+      "sha256": "ee76561b25df2fab39abbedc9d1b53ea8de35d7aef3bc47a223c6101e69894d3"
+    },
+    {
+      "path": "src/GameMods/SlotAuthority.cs",
+      "bytes": 14278,
+      "sha256": "bf87a142b6e3ffb53683da81d3b190b09d5a200cfd8f96b06f28b04f37b76fc8"
+    },
+    {
+      "path": "src/GameMods/SlotConfetti.cs",
+      "bytes": 4190,
+      "sha256": "652f7b529c64976059fb3ef0c10187214c8c5bf2f956b0bf453160abfad5b9ff"
+    },
+    {
+      "path": "src/GameMods/SlotNetwork.cs",
+      "bytes": 10249,
+      "sha256": "e025f13f09c3dfce9aef2ff32c9e40dc40c7fd8344786a44b6c5073792e1fc18"
+    },
+    {
+      "path": "src/GameMods/SlotPlayer.cs",
+      "bytes": 10038,
+      "sha256": "df4eaabd711d08ff6e9c4601249cbe3af5cc931dac7def53c7aab6a3a56e4cfe"
+    },
+    {
+      "path": "src/GameMods/TerminalPrompt.cs",
+      "bytes": 3443,
+      "sha256": "e3e921f3787499f325e96e39e01c698f883dde79af151f69952bb1e3600af73c"
+    },
+    {
+      "path": "src/GameMods/WorldShop.cs",
+      "bytes": 12202,
+      "sha256": "1480f352eec64fb38697d75df3a1db54bd146dad2abb51d808e03bec8bcbeb9e"
+    },
+    {
+      "path": "src/GameMods/WorldSlots.cs",
+      "bytes": 14277,
+      "sha256": "95f02d1929bd6b698ce29fd1b89cee0a4f681be53edae1885559282221ed6258"
+    },
+    {
+      "path": "src/Manager/MainForm.cs",
+      "bytes": 16831,
+      "sha256": "a4152cc8af3d0fcacafac83604e766cd14e47c814f8526e7314ec3f52dd2e4f8"
+    },
+    {
+      "path": "src/Manager/Manager.csproj",
+      "bytes": 1526,
+      "sha256": "7905806c169f1f2c25105965a9036bc382cc38d55f8cd94396155ea304f0b442"
+    },
+    {
+      "path": "src/Manager/NewsPanel.cs",
+      "bytes": 4611,
+      "sha256": "1713c35b53abe8c39c38c4de5bc0e261d70c20586782097ed4b7454651ff109d"
+    },
+    {
+      "path": "src/Manager/Program.cs",
+      "bytes": 8974,
+      "sha256": "1b2f7181f77ec4a6f425138b5e81a61956a155206fed01db3e3059fdb625bc2d"
+    },
+    {
+      "path": "src/Manager.Core/AssemblyInfo.cs",
+      "bytes": 89,
+      "sha256": "784c0ba6fc39b48ff14a9992815e2a4caae40f3c51c31dd3e1949d9db2e0e224"
+    },
+    {
+      "path": "src/Manager.Core/ExpansionKit.cs",
+      "bytes": 16168,
+      "sha256": "ec4120e245594036079df677a3fdb92f512addf7e5b2bc2a1b491d083ee98a25"
+    },
+    {
+      "path": "src/Manager.Core/ExpansionNews.cs",
+      "bytes": 6478,
+      "sha256": "d99634bf679077759dab366ac4dd63a1c8a932677e0ed85fe55d53b456a6d1ef"
+    },
+    {
+      "path": "src/Manager.Core/GameService.cs",
+      "bytes": 21983,
+      "sha256": "6f8d4d43057e479fb2e4c8cc1b395e23480da7b8a22af26c67c18c38d279386f"
+    },
+    {
+      "path": "src/Manager.Core/LinuxSteam.cs",
+      "bytes": 6160,
+      "sha256": "ece5ce6ce847439b7d190a2a43e68add58542d36f3126b96e95d11b343ca1d5b"
+    },
+    {
+      "path": "src/Manager.Core/Manager.Core.csproj",
+      "bytes": 1668,
+      "sha256": "42b9bffb63958a5e8f72a9c3208b747fd983fb01eadb0575eb7e7aaecfaad8c8"
+    },
+    {
+      "path": "src/Manager.Core/Models.cs",
+      "bytes": 3117,
+      "sha256": "4f63caf220f4fcdf6eda465e007325ee900b8184e3033cc48559fbf8239c9ab3"
+    },
+    {
+      "path": "src/Manager.Core/PathIdentity.cs",
+      "bytes": 354,
+      "sha256": "399721827c9aa1c08fb7d6ab967b37e10bcdb70d8ab1fba7db864d67155d805e"
+    },
+    {
+      "path": "src/Manager.Core/PortablePackage.cs",
+      "bytes": 7964,
+      "sha256": "660ea72800eec1a5c22e3ef93ee8a98379a6bbe05c403dc0542fefb07762d788"
+    },
+    {
+      "path": "src/Manager.Core/SteamDiscovery.cs",
+      "bytes": 2608,
+      "sha256": "f5947c93603941237579c1cc454fed98127252a1da2afac43252f0e6378b8bfc"
+    },
+    {
+      "path": "src/Manager.Linux/Dialogs.cs",
+      "bytes": 4893,
+      "sha256": "58d5d056508b3e31ed1b602a81b65496bd877454205bd9f2aa503d8b115d098e"
+    },
+    {
+      "path": "src/Manager.Linux/Manager.Linux.csproj",
+      "bytes": 1162,
+      "sha256": "5e23af47efc4131e0d73d47cde49da2779162008bf6dd0ec2c5f09935dd15392"
+    },
+    {
+      "path": "src/Manager.Linux/Program.cs",
+      "bytes": 10909,
+      "sha256": "5dcba26b1ef5ed98dda655cf3cfbb89e3b7047fa4d37ec85625975b835c8e382"
+    },
+    {
+      "path": "src/Manager.Tests/AscendantRetuneChecks.cs",
+      "bytes": 3095,
+      "sha256": "cc2693bec8470ebe1f63d53cb75c8d8423a6b449e0d9768120107ead7dfff53d"
+    },
+    {
+      "path": "src/Manager.Tests/CacheSecurityChecks.cs",
+      "bytes": 7768,
+      "sha256": "944f2ec42e1fb5613ccebf1c61e6d2e5f263c2b0a922195538f9360ad45c7793"
+    },
+    {
+      "path": "src/Manager.Tests/ExpansionKitChecks.cs",
+      "bytes": 8885,
+      "sha256": "9b044b246efe598184903f6b123c9db2b6869e67ccc9431e920b5f1fda6a261d"
+    },
+    {
+      "path": "src/Manager.Tests/ExpansionMusicChecks.cs",
+      "bytes": 1247,
+      "sha256": "d75b1fd1b0691454227d919395a39bad4a49429a9ecad9b8b12a0f5fe3ae12cf"
+    },
+    {
+      "path": "src/Manager.Tests/ExpansionNewsChecks.cs",
+      "bytes": 4719,
+      "sha256": "99f6da751c9f77e15d7cb11b59667fe051edc729c5cdee09a3fbb0a5143bb292"
+    },
+    {
+      "path": "src/Manager.Tests/FinalReleaseChecks.cs",
+      "bytes": 2932,
+      "sha256": "aa0333f570af0b08d4ab91b640bd9ced8273ffb3c3060974ff7898d6dda6964c"
+    },
+    {
+      "path": "src/Manager.Tests/ForgeAssetChecks.cs",
+      "bytes": 22358,
+      "sha256": "37083ad0d36a79294be45622ddbc6a82f2554136b2ba7db4c62a3da26f6f1d31"
+    },
+    {
+      "path": "src/Manager.Tests/ForgeLocomotionChecks.cs",
+      "bytes": 4932,
+      "sha256": "72ac0654d2f8b8d5b567af44ab8dc2db8dbe0bd9ec3f070b492d975051ba774c"
+    },
+    {
+      "path": "src/Manager.Tests/ForgeUnlockChecks.cs",
+      "bytes": 5852,
+      "sha256": "7550eb2f83a544fdf7ca1a82957eeb817fcff7708f19ccb1fe7f0c17c0678c19"
+    },
+    {
+      "path": "src/Manager.Tests/LinuxInstallerChecks.cs",
+      "bytes": 7497,
+      "sha256": "d36bb9c94a05c477e02be3fb360db9a5ed356024a4cbd9a59caa34adb19c4a83"
+    },
+    {
+      "path": "src/Manager.Tests/Manager.Tests.csproj",
+      "bytes": 418,
+      "sha256": "67b7866c121b4d6635984266a3032201dcc9ae8cb181f4789aa968556d95c1fb"
+    },
+    {
+      "path": "src/Manager.Tests/Program.cs",
+      "bytes": 70600,
+      "sha256": "738a886a19d2ee600166c4345109207e06383943cee022dcda106dd24b501f44"
+    },
+    {
+      "path": "src/Shared/AscendantRules.cs",
+      "bytes": 1577,
+      "sha256": "3b56931b01a870cb6f76135ed6093e083f723356a9be0c45fdba6991f9e8c612"
+    },
+    {
+      "path": "src/Shared/AspectRules.cs",
+      "bytes": 2717,
+      "sha256": "7032eab1ab07e76e56a792a4502b70a3d62bfcda82acbc98f8eac91791d45808"
+    },
+    {
+      "path": "src/Shared/BalanceMath.cs",
+      "bytes": 635,
+      "sha256": "867b43c78cfefd98129f8f9af68cee25497fc76e0692ce174b34380b8511eb91"
+    },
+    {
+      "path": "src/Shared/CannonRules.cs",
+      "bytes": 8802,
+      "sha256": "fbdf4d2e560d19154626df25a954b3611325bee0944782b2553b33ee4d6887e1"
+    },
+    {
+      "path": "src/Shared/CustomModRules.cs",
+      "bytes": 1474,
+      "sha256": "fb67d1693877a3188d7a7ddff79db6c140550a28632cbdcfe9438d74c2b7e833"
+    },
+    {
+      "path": "src/Shared/ExchangeRules.cs",
+      "bytes": 5497,
+      "sha256": "0f00824518803164b0717be5f9be39e00168b7ce4f6b836db621326bf9c6f4a9"
+    },
+    {
+      "path": "src/Shared/ExpansionPlaylist.cs",
+      "bytes": 1019,
+      "sha256": "587d7441c9d75c3d1ff17b4e073ec04ffab3b47e5e0231faf2d5d907b6cc05f0"
+    },
+    {
+      "path": "src/Shared/ForgeLocomotion.cs",
+      "bytes": 3320,
+      "sha256": "8af54e4215051a2f71c6b19a66209f8513322b06d186624d3e15938457bd3994"
+    },
+    {
+      "path": "src/Shared/ForgeModel.cs",
+      "bytes": 7047,
+      "sha256": "1542a7eebc2a25d5266b1fd9a849381013d8d5c093398bc2b13d999b94b21745"
+    },
+    {
+      "path": "src/Shared/ForgeRules.cs",
+      "bytes": 7724,
+      "sha256": "43577e64df28092797258dbbf6d8ba96940bad6f8e17feb90d745b1da381d98d"
+    },
+    {
+      "path": "src/Shared/ForgeTooltips.cs",
+      "bytes": 4275,
+      "sha256": "0fbce0d8c03b7d3d9358538c402f61564584f982695d80ab716f7bdca1ebc35b"
+    },
+    {
+      "path": "src/Shared/ForgeUnlockRules.cs",
+      "bytes": 2610,
+      "sha256": "59e1437f4faf1b8b83a4fa8ab22d360a92dbf41b7cfcc91b038907cd327364ed"
+    },
+    {
+      "path": "src/Shared/ItemCapRules.cs",
+      "bytes": 1043,
+      "sha256": "0c16517f40b974b07dc0aca467b11255268602d4f269a7d2ce20383b039166d9"
+    },
+    {
+      "path": "src/Shared/ModMessages.cs",
+      "bytes": 2971,
+      "sha256": "d3b78203f5674a10e3212f8014e97ec14a0774ec9be8eb94025237c4d160c26f"
+    },
+    {
+      "path": "src/Shared/SlotRules.cs",
+      "bytes": 4086,
+      "sha256": "b777ad1ebe2bca1a38770c70106181685ec7cb71abfe0685d39fc8ab5b1d2bda"
+    },
+    {
+      "path": "src/Shared/SlotSoundTimeline.cs",
+      "bytes": 1594,
+      "sha256": "36265c8b944842b0f6f4fa99f5f3455a248f2b8adcc92bd61899888ac23c4b3f"
+    },
+    {
+      "path": "src/SubtleBalance/Plugin.cs",
+      "bytes": 7800,
+      "sha256": "7eb75836915819faab46594c53940a3d385c60d7f0bd1a8a6297c151648c5b83"
+    },
+    {
+      "path": "src/SubtleBalance/SubtleBalance.csproj",
+      "bytes": 908,
+      "sha256": "639a3560ba781516c073b6cc0ca4717156ff04e5faf84e7ab5f2e3b6a7adc9cb"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Preserve the exact first-party snapshot bytes used by the historical hashes.
+* -text

@@ -1,0 +1,15 @@
+# Original quarantined installer 0.15.4
+
+This snapshot identifies the original upload, not the corrected 0.15.5 release. `code/src` contains all 94 first-party source/project files recorded in `code-source-hashes.json`; each hash was checked before publication. Original build scripts, news, notices and source metadata were recovered from the preserved pre-0.15.5 workspace. `reproducible-build-results.json` and `release-hashes.sha256` are historical evidence from the original review.
+
+The seven music recordings and other embedded gameplay assets were unchanged by the installer security fix. All 61 shared runtime assets were compared byte for byte to the pre-update workspace; `shared-assets.json` records the inputs under the main repository's `src/GameMods/Assets`. They are shared to avoid storing a second copy. This is more complete than the earlier code-only review ZIP; the old `code/BUILD_AND_SCOPE.md` describes that earlier ZIP and remains historical.
+
+## Reconstruct a source build for the old upload
+
+1. Follow the main `BUILD.md` prerequisites and bootstrap setup, providing SDK **8.0.427**. The original Windows installer targets net8.0-windows, Linux targets net8.0 and gameplay targets net6.0. The reviewed self-contained runtime was **8.0.33**.
+2. From the main source root, run `python -B ./prepare-legacy-0154.py`. It verifies recorded source/shared asset hashes, creates `.legacy-review/Workspace/GatekeeperModManager`, copies original source/scripts/news and shared assets, extracts the hash-pinned **unmodified be.791** loader base (including its historical runtime), and copies SDK 8. It does not launch or install anything. `--skip-sdk-copy` lets an expert supply the pinned SDK at the normal `tools/dotnet` path instead.
+3. Generate reference assemblies locally from a legitimate pinned game using the legacy loader in a separate test installation/VM. Place `BepInEx/interop` adjacent to the reconstructed project, as described in the main guide. Do not mix the updated 0.15.5 managed loader/dependencies into the old staging tree. Do not redistribute game-derived references.
+4. In the reconstructed project, run the preserved `build-portable.ps1`, then `build-linux.ps1`. They rebuild the plugins, construct/embed the old payload and publish that source revision. NuGet restores framework publish packages. To pin the historical publish runtime explicitly when comparing, use `-p:RuntimeFrameworkVersion=8.0.33` with the corresponding `dotnet publish` operation.
+5. The original actual-payload suite had 694 checks. Compare outputs with recorded hashes, but do not assume a cross-machine rebuild is byte-identical: packaging metadata, paths and resolved inputs can differ. The original report's exact-match claim applies to its recorded controlled rebuild, not all future environments.
+
+The legacy runtime/cache findings are documented in the current security-fix note. This snapshot is supplied for review/provenance, not as a recommended player release. Source-publication validation builds current 0.15.5; it does not relaunch the obsolete runtime or certify the old file. Nexus should assess 0.15.4 and 0.15.5 separately.

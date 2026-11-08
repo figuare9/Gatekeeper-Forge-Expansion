@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "featuredArticleId": "forge-complete",
+  "expansions": [
+    {
+      "id": "forge",
+      "title": "Forge Expansion",
+      "articles": [
+        {
+          "id": "forge-complete",
+          "title": "Forge Expansion: Build Your Stronghold",
+          "kind": "Complete expansion notes",
+          "date": "2026-11-07",
+          "version": "0.15.4",
+          "file": "forge-complete.md"
+        },
+        {
+          "id": "relay-0154",
+          "title": "A Better Place to Discover Forge",
+          "kind": "Gameplay update",
+          "date": "2026-11-07",
+          "version": "0.15.4",
+          "file": "relay-0154.md"
+        },
+        {
+          "id": "ascendant-0152",
+          "title": "Ascendant: More Room to Grow",
+          "kind": "Gameplay update",
+          "date": "2026-11-07",
+          "version": "0.15.2",
+          "file": "ascendant-0152.md"
+        },
+        {
+          "id": "installer-0153",
+          "title": "Your Expansion, All in One Place",
+          "kind": "Installer update",
+          "date": "2026-11-07",
+          "version": "0.15.3",
+          "file": "installer-0153.md"
+        }
+      ]
+    }
+  ]
+}

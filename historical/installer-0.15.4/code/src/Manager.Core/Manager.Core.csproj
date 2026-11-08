@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net8.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup>
+  <ItemGroup><Compile Include="../Shared/BalanceMath.cs" Link="BalanceMath.cs" /><Compile Include="../Shared/CustomModRules.cs" Link="CustomModRules.cs" /><Compile Include="../Shared/SlotRules.cs" Link="SlotRules.cs" /><Compile Include="../Shared/SlotSoundTimeline.cs" Link="SlotSoundTimeline.cs" /><Compile Include="../Shared/ExchangeRules.cs" Link="ExchangeRules.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/ModMessages.cs" Link="ModMessages.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/CannonRules.cs" Link="CannonRules.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/ForgeRules.cs" Link="ForgeRules.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/ForgeModel.cs" Link="ForgeModel.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/ForgeLocomotion.cs" Link="ForgeLocomotion.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/AspectRules.cs" Link="AspectRules.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/ForgeTooltips.cs" Link="ForgeTooltips.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../Shared/AscendantRules.cs" Link="AscendantRules.cs" /><Compile Include="../Shared/ItemCapRules.cs" Link="ItemCapRules.cs" /><Compile Include="../Shared/ForgeUnlockRules.cs" Link="ForgeUnlockRules.cs" /></ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../content/news/*.json;../../content/news/*.md" LogicalName="Gatekeeper.News.%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

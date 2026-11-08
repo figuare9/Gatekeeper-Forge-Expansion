@@ -1,0 +1,11 @@
+{
+  "runtime": "10.0.14",
+  "sdk": "10.0.403",
+  "metadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
+  "archiveChecks": "SHA-512 matched Microsoft release metadata",
+  "runtimeSha256": "d861ab80f232adf3bdce83293bc1fa92868400330c477bf854d8558eb91c7ca6",
+  "sdkSha256": "f398979a9cac2dba760771c4e01f16e431dcd6bcfb2213e3e8f5b3d354095cc0",
+  "loaderBaseCommit": "b782da4ac54e1072d2857f4a2f77c80c3ef08005",
+  "loaderSourceArchiveSha256": "53f87ca8e5ab9891ab3e22af0dc021a17b5bdc3f0fa917f815d6d0667d90b259",
+  "loaderCompatibility": "6.0.0-forge-runtime.1"
+}

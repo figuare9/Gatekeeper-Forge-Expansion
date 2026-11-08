@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Gatekeeper.ModManager</AssemblyName><Version>0.15.5</Version>
+    <Product>Gatekeeper Forge Expansion Installer</Product>
+    <Description>Complete community expansion installation kit for Gatekeeper.</Description>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(PortablePayload)' == 'true'">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier><SelfContained>true</SelfContained><RuntimeFrameworkVersion>10.0.14</RuntimeFrameworkVersion>
+    <PublishSingleFile>true</PublishSingleFile><IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile><DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(PortablePayload)' == 'true'">
+    <EmbeddedResource Include="../../packages/portable-payload.zip" LogicalName="Gatekeeper.ModManager.Payload.zip" />
+  </ItemGroup>
+  <ItemGroup><ProjectReference Include="../Manager.Core/Manager.Core.csproj" /></ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../GameMods/Assets/Forge/forge-portrait.png" LogicalName="Gatekeeper.Installer.portrait" />
+  </ItemGroup>
+</Project>

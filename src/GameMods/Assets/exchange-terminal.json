@@ -1,0 +1,25 @@
+{
+  "materials": {
+    "metal": [0.13, 0.18, 0.22],
+    "edge": [0.30, 0.37, 0.38],
+    "mint": [0.30, 0.90, 0.71],
+    "screen": [0.035, 0.13, 0.15],
+    "gold": [0.93, 0.69, 0.31]
+  },
+  "parts": [
+    {"name":"Foot", "at":[0,0.12,0], "size":[2.25,0.24,1.6], "material":"metal"},
+    {"name":"Plinth", "at":[0,0.29,0], "size":[1.95,0.10,1.4], "material":"mint"},
+    {"name":"Cabinet", "at":[0,0.95,0.10], "size":[1.65,1.25,1], "material":"metal"},
+    {"name":"Counter", "at":[0,1.57,-0.12], "size":[2.1,0.18,1.45], "material":"edge"},
+    {"name":"Display frame", "at":[0,2.02,0.22], "size":[1.8,0.86,0.24], "material":"edge"},
+    {"name":"Display", "at":[0,2.02,0.085], "size":[1.62,0.68,0.035], "material":"screen"},
+    {"name":"Catalog light 0", "at":[-0.46,2.02,0.055], "size":[0.20,0.30,0.025], "material":"mint"},
+    {"name":"Catalog light 1", "at":[0,2.02,0.055], "size":[0.20,0.30,0.025], "material":"gold"},
+    {"name":"Catalog light 2", "at":[0.46,2.02,0.055], "size":[0.20,0.30,0.025], "material":"mint"},
+    {"name":"Left post", "at":[-0.94,1.76,0.42], "size":[0.12,2.82,0.12], "material":"edge"},
+    {"name":"Right post", "at":[0.94,1.76,0.42], "size":[0.12,2.82,0.12], "material":"edge"},
+    {"name":"Header", "at":[0,2.78,0.28], "size":[2.16,0.42,0.35], "material":"metal"},
+    {"name":"Header light", "at":[0,3.02,0.28], "size":[2.2,0.055,0.36], "material":"mint"},
+    {"name":"Canopy", "at":[0,3.12,0.12], "size":[2.45,0.12,1.4], "material":"metal"}
+  ]
+}
