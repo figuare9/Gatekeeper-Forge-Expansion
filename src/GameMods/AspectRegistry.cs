@@ -32,7 +32,7 @@ internal static class AspectRegistry
         ["gkmm.aspect.242.name"]="Aspect of Elite",
         ["gkmm.aspect.242.description"]="Every enemy is elite, including bosses.",
         ["gkmm.aspect.243.name"]="Ascendant Difficulty",
-        ["gkmm.aspect.243.description"]="Rise to a greater challenge. Enemies grow tougher as your team's build strengthens, with more elite encounters to test your power."
+        ["gkmm.aspect.243.description"]="Challenge adapts to your team's build at each new stage. A gentler start leads to tougher enemies and more elite encounters."
     };
     private static AspectsInfoProvider? provider;
     private static AspectsPanelController? panel;
@@ -47,8 +47,10 @@ internal static class AspectRegistry
         foreach(var name in new[]{nameof(LocalizationManager.GetTranslation),nameof(LocalizationManager.GetTranslationByManager)})
             h.Patch(AccessTools.Method(typeof(LocalizationManager),name),prefix:new(typeof(AspectRegistry),nameof(Translation)));
         h.Patch(AccessTools.Method(typeof(LocalizationManager),nameof(LocalizationManager.TryGetTranslation)),prefix:new(typeof(AspectRegistry),nameof(TryTranslation)));
-        h.Patch(AccessTools.Method(typeof(AspectsPanelController),"Awake"),postfix:new(typeof(AspectRegistry),nameof(Panel)));
-        h.Patch(AccessTools.Method(typeof(AspectsPanelController),"SpawnAspects"),postfix:new(typeof(AspectRegistry),nameof(Layout)));
+        // Awake enumerates the catalog and creates cells before Setup is ever
+        // called on the normal single-player route. Register before that read.
+        h.Patch(AccessTools.Method(typeof(AspectsPanelController),"Awake"),prefix:new(typeof(AspectRegistry),nameof(BeforePanel)),postfix:new(typeof(AspectRegistry),nameof(Panel)));
+        h.Patch(AccessTools.Method(typeof(AspectsPanelController),"SpawnAspects"),prefix:new(typeof(AspectRegistry),nameof(BeforeSpawn)),postfix:new(typeof(AspectRegistry),nameof(Layout)));
         h.Patch(AccessTools.Method(typeof(AspectsPanelController),nameof(AspectsPanelController.Setup)),prefix:new(typeof(AspectRegistry),nameof(BeforeSetup)),postfix:new(typeof(AspectRegistry),nameof(Layout)));
         foreach(var name in new[]{"Awake","OnStartClient","ServerInit"})
             h.Patch(AccessTools.Method(typeof(AspectsManager),name),name=="Awake"?null:new HarmonyMethod(typeof(AspectRegistry),nameof(ManagerReady)),name=="Awake"?new HarmonyMethod(typeof(AspectRegistry),nameof(ManagerReady)):null);
@@ -118,7 +120,34 @@ internal static class AspectRegistry
         // provider's IsUnlocked method. Register real profile unlocks as well.
         foreach(var id in Ids)if(!SaveLoadManager.DataSave.Aspects.Contains((EAspect)id))SaveLoadManager.DataSave.Aspects.Add((EAspect)id);
     }
-    private static void BeforeSetup(){Ensure();UnlockProfile();}
+    private static void BeforePanel()
+    {try{Ensure();UnlockProfile();}catch(Exception e){Report(e);}}
+    private static void BeforeSpawn(AspectsPanelController __instance,ref Il2CppSystem.Collections.Generic.List<EAspect> __0)
+    {
+        try
+        {
+            Ensure();if(!Registered)return;
+            var requested=new List<int>();if(__0!=null)foreach(var id in __0)requested.Add((int)id);
+            var existing=new List<int>();foreach(var cell in __instance._cells)if(cell!=null)existing.Add((int)cell.Type);
+            var next=new Il2CppSystem.Collections.Generic.List<EAspect>();
+            foreach(var id in AspectRules.MissingCells(requested,existing))next.Add((EAspect)id);
+            __0=next;
+        }
+        catch(Exception e){Report(e);}
+    }
+    private static void BeforeSetup(AspectsPanelController __instance)
+    {
+        try
+        {
+            Ensure();UnlockProfile();if(!Registered)return;
+            var existing=new List<int>();foreach(var cell in __instance._cells)if(cell!=null)existing.Add((int)cell.Type);
+            // Repair an already-created stock panel before native Setup sets
+            // unlocks, selections, local-transport filtering and click state.
+            if(AspectRules.MissingCells(Array.Empty<int>(),existing).Length>0)
+                __instance.SpawnAspects(new Il2CppSystem.Collections.Generic.List<EAspect>());
+        }
+        catch(Exception e){Report(e);}
+    }
     internal static bool CustomSelected()
     {
         if(panel!=null)foreach(var i in panel._selectedAspects)if(AspectRules.IsCustom((int)i.Type))return true;

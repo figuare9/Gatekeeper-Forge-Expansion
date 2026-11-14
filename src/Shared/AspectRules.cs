@@ -5,9 +5,17 @@ namespace Gatekeeper.Mods;
 public static class AspectRules
 {
     public const byte Chaos=240,Scaling=241,Elite=242;
-    public const string Revision="expansion-aspects-5";
+    public const string Revision="expansion-aspects-7";
     public const float ChaosBonus=.75f,HealthPerLevel=.07f,PrismsPerLevel=.05f;
     public static bool IsCustom(int id)=>id is Chaos or Scaling or Elite or AscendantRules.SaveId;
+    public static int[] MissingCells(IEnumerable<int> requested,IEnumerable<int> existing)
+    {
+        var seen=new HashSet<int>(existing);
+        return requested.Concat(new[]{(int)Chaos,Scaling,Elite}).Where(id=>id!=AscendantRules.SaveId && seen.Add(id)).ToArray();
+    }
+    public static bool CompleteEliteDeath(bool active,bool server,bool spawned,bool alive,bool elite,bool boss,bool authenticated,float health,float receivedDamage)=>
+        active && server && spawned && alive && elite && !boss && authenticated &&
+        float.IsFinite(health) && health<=0 && float.IsFinite(receivedDamage) && receivedDamage>0;
     public static float SpawnMultiplier(float native,bool chaos)=>!chaos?native:native+ChaosBonus;
     public static float TeamFactor(IEnumerable<int> levels)=>TeamScaling(levels).Health;
     public static AspectScaling TeamScaling(IEnumerable<int> levels)

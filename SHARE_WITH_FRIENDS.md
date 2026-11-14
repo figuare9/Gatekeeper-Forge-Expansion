@@ -1,8 +1,8 @@
-# Forge Expansion — installation kit 0.15.5
+# Forge Expansion — installation kit 0.15.8
 
-Send **Gatekeeper.ForgeExpansion-Setup-v0.15.5.exe**. This one Windows x64 EXE contains the complete community expansion and everything needed to install it. It contains no personal saves, unlocks, settings, logs, game binaries or generated game bindings.
+Send **Gatekeeper.ForgeExpansion-Setup-v0.15.8.exe**. This one Windows x64 EXE contains the complete community expansion and everything needed to install it. It contains no personal saves, unlocks, settings, logs, game binaries or generated game bindings.
 
-For **desktop Linux**, send **Gatekeeper.ForgeExpansion-Linux-v0.15.5.tar.gz** instead. Extract it, run `Install-Forge.sh`, then add the Steam launch setting shown at the end. It installs the same expansion into the Windows game running through Proton. See [Linux steps](linux/README-LINUX.md). This is a Linux testing kit; actual Linux gameplay/co-op still needs verification.
+For **desktop Linux**, send **Gatekeeper.ForgeExpansion-Linux-v0.15.8.tar.gz** instead. Extract it, run `Install-Forge.sh`, then add the Steam launch setting shown at the end. It installs the same expansion into the Windows game running through Proton. See [Linux steps](linux/README-LINUX.md). This is a Linux testing kit; actual Linux gameplay/co-op still needs verification.
 
 ## Install
 
@@ -16,7 +16,7 @@ The first game launch can take longer while the loader prepares its Unity bindin
 
 ## Read the expansion news
 
-The installer includes the complete developer-style DLC article, ability upgrades, items, economy, Aspects, Ascendant, music and quality-of-life notes. Use the expansion/article selectors and section jump list in the main window. No internet connection is needed to read it. Installer **0.15.5** retains gameplay **0.15.4** and protocol **12**. This update strengthens package verification and updates the bundled runtime and its loader dependencies. All co-op players should update together.
+The installer includes the complete developer-style DLC article, ability upgrades, items, economy, Aspects, Ascendant, music and quality-of-life notes. Use the expansion/article selectors and section jump list in the main window. No internet connection is needed to read it. Installer and gameplay are **0.15.8 / protocol 12**. Forge can now be unlocked on Ethereal Bridge regardless of stage. Package verification and the updated runtime and loader dependencies are retained. All co-op players should update together.
 
 ## Included together
 
@@ -29,7 +29,7 @@ The installer includes the complete developer-style DLC article, ability upgrade
 
 The expansion uses one fixed content configuration. The former movement, damage and cooldown sliders are not part of the installation flow; their optional balance patches remain off, matching the creator's current configuration. The legacy balance patches retain their single-player restrictions. Halfmetal Head uses its original capacity and summon rules.
 
-The three expansion Aspects are immediately available. Forge starts locked: find and approach the engineering relay in the west-side service bay off the left-hand route on Celestium's Ethereal Bridge from Stage 7 onward. The fixed lever animates and unlocks Forge for everyone currently in the run; his portrait appears in the native top banner. Map rotation remains normal, so the exact stage can vary. A late joiner can approach it themselves. Existing Forge checkpoints can still continue. Forge unlock progress is local to each Steam account, in `BepInEx/config/local.gatekeeper.custommods.forge-progress.json`.
+The three expansion Aspects are immediately available. Forge starts locked: find and approach the engineering relay in the west-side service bay off the left-hand route on Celestium's Ethereal Bridge regardless of stage. The fixed lever animates and unlocks Forge for everyone currently in the run; his portrait appears in the native top banner. Map rotation remains normal, so the exact stage can vary. A late joiner can approach it themselves. Existing Forge checkpoints can still continue. Forge unlock progress is local to each Steam account, in `BepInEx/config/local.gatekeeper.custommods.forge-progress.json`.
 
 Cannon Wheel still requires winning 777 on Prism Jackpot; installation does not grant item stacks or unlock other native content. Cannon unlock progress stays in `BepInEx/config/local.gatekeeper.custommods.cannon-progress.json`. Both unlock files are preserved during updates/removal and copied beside installer save backups. Keep them with your own saves when moving PCs. These are local unlocks, not Steam achievements or Steam Cloud unlocks. Do not distribute your progress files or saves.
 
@@ -51,7 +51,7 @@ Finish or end any saved run using Forge, Cannon Wheel or the new Aspects before 
 
 ## Co-op testing
 
-Everyone needs the same **0.15.5 gameplay version** and should update together. Install the kit, then use the game's normal co-op lobby and invitations. All content switches are set consistently by the installer. It bundles gameplay content **0.15.5 / protocol 12**, including the new Aspects, Forge abilities in Quiet Place and Quiet Bay, seeking turret rivets, improved firing effects and seven replacement gameplay songs. The performance and visual recovery fixes are retained. Everyone must update together; a lobby using the new Aspects requires matching Aspect support from every player. Music playback is local and does not add network traffic.
+Everyone needs the same **0.15.8 gameplay version** and should update together. Install the kit, then use the game's normal co-op lobby and invitations. All content switches are set consistently by the installer. It bundles gameplay content **0.15.8 / protocol 12**, including the new Aspects, Forge abilities in Quiet Place and Quiet Bay, seeking turret rivets, improved firing effects and seven replacement gameplay songs. The performance and visual recovery fixes are retained. Everyone must update together; a lobby using the new Aspects requires matching Aspect support from every player. Music playback is local and does not add network traffic.
 
 Co-op still needs live validation. Completed Forge save/resume, normal Cannon Wheel drops and its newer native Emporium listing/random pedestal offers also need further playtesting. Keep the automatic backups.
 
@@ -66,4 +66,12 @@ The EXE unpacks verified components into `%LOCALAPPDATA%/GatekeeperModManager/bu
 Gatekeeper and Steam retain their normal network requirements. Gatekeeper and its assets belong to their owners. Third-party licenses and the supplied sound notices are bundled under **Support → Licenses & instructions**.
 
 
-Installer 0.15.5 retains gameplay content 0.15.4 and co-op protocol 12. It updates bundled runtimes and verifies cached installation components against the embedded manifest.
+Historical installer 0.15.5 retained gameplay content 0.15.4. Its runtime updates and package verification are retained in the current 0.15.8 / protocol 12 release.
+
+## Ascendant stage pacing
+
+Ascendant snapshots team build power and average character level when each combat stage loads. The opening stage has no Ascendant bonus. Its added health and extra-elite chance are 10% lower through character level 30, blend back over levels 31–50, and match the established formula from level 50. Items and levels gained during a stage affect the next stage. Native difficulty and the separate Scaling Aspect keep their own rules. The host's entry snapshot is retained for Continue in `BepInEx/config/local.gatekeeper.custommods.ascendant-stage.json` and included beside installer save backups.
+
+## Aspect fixes in 0.15.8
+
+Chaos, Scaling and Elite appear directly in the normal Single Player Aspects menu. Opening a private game is not required. The Elite Aspect now completes stalled zero-health deaths through native death/reward handling after a short confirmation grace period. Living enemies, boss phases and training dummies retain their existing behavior. Ascendant pacing and balance values are unchanged.

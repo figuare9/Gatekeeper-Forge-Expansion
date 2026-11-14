@@ -1,9 +1,12 @@
 using System.Reflection;
 using FishNet.Object.Synchronizing;
+using FishNet.Connection;
+using FishNet.Object;
 using Gatekeeper.Char_Scripts;
 using Gatekeeper.Elites;
 using Gatekeeper.Enemy.Base;
 using Gatekeeper.Enemy.Base.Logic;
+using Gatekeeper.Enemy.Dummy;
 using Gatekeeper.General;
 using Gatekeeper.General.Aspects;
 using Gatekeeper.General.Predictor;
@@ -11,6 +14,7 @@ using Gatekeeper.General.Tasks.TaskLogic;
 using Gatekeeper.Infrastructure.Providers.InfoProviders;
 using Gatekeeper.Mods;
 using Gatekeeper.NPC;
+using Gatekeeper.Utility;
 using HarmonyLib;
 using Il2CppInterop.Runtime.InteropTypes;
 using UnityEngine;
@@ -24,7 +28,11 @@ internal static class AspectGameplay
     private static readonly AspectPrismCarry prisms=new();
     private static readonly Dictionary<EliteType,EliteInfo> defensiveElites=new();
     private static readonly HashSet<IntPtr> extraElites=new();
-    internal static int ScaledSpawns,ForcedElites;
+    private static readonly HashSet<IntPtr> completedDeaths=new();
+    private sealed record PendingDeath(NpcCharacter Enemy,int Sender,NetworkObject Owner,DamageType Type,float At);
+    private static readonly Dictionary<IntPtr,PendingDeath> pendingDeaths=new();
+    private static float nextDeathCheck;
+    internal static int ScaledSpawns,ForcedElites,RecoveredDeaths;
     internal static string? Error {get;private set;}
     // Native level generation can spawn enemies before the loading screen ends.
     // The authoritative active-Aspect set, rather than the UI gameplay state,
@@ -35,6 +43,7 @@ internal static class AspectGameplay
         h.Patch(AccessTools.PropertyGetter(typeof(DefaultModeSpawnLogic),"AspectOfSwarmMultiplier"),postfix:new(typeof(AspectGameplay),nameof(SpawnMultiplier)));
         h.Patch(AccessTools.Method(typeof(NpcCharacter),nameof(NpcCharacter.ServerSpawn)),prefix:new(typeof(AspectGameplay),nameof(Spawn)),postfix:new(typeof(AspectGameplay),nameof(Health)));
         h.Patch(AccessTools.Method(typeof(NpcCharacter),"ServerCalculateStats"),postfix:new(typeof(AspectGameplay),nameof(Health)));
+        h.Patch(AccessTools.Method(typeof(NpcCharacter),"KillerAndServerTakeDamage"),postfix:new(typeof(AspectGameplay),nameof(CompleteDeath)));
         h.Patch(AccessTools.Method(typeof(RewardManager),"CalculatePrismDropAmount"),postfix:new(typeof(AspectGameplay),nameof(Reward)));
         h.Patch(AccessTools.Method(typeof(NpcCharacter),"OnDisable"),postfix:new(typeof(AspectGameplay),nameof(Disabled)));
         // Do not patch inherited empty NetworkBehaviour methods: IL2CPP shares
@@ -60,11 +69,13 @@ internal static class AspectGameplay
         try
         {
             var factor=Active(AspectRules.Scaling)?TeamFactor():AspectScaling.Unscaled;
-            var power=AscendantDifficulty.Active?AscendantDifficulty.SamplePower():1;
-            factors[__instance.Pointer]=new(factor.Health*AscendantRules.Health(power),factor.Prisms);
+            var ascendant=AscendantDifficulty.StageFactors();
+            factors[__instance.Pointer]=new(factor.Health*ascendant.Health,factor.Prisms);
             if(factors[__instance.Pointer].Health>1)ScaledSpawns++;
             extraElites.Remove(__instance.Pointer);
-            var ascent=AscendantDifficulty.Active && !enemy.IsElite && !__instance.IsSiren && AspectRules.EliteMask((int)enemy.Info.EliteTypes)!=0 && UnityEngine.Random.value<AscendantRules.EliteChance(power);
+            completedDeaths.Remove(__instance.Pointer);
+            pendingDeaths.Remove(__instance.Pointer);
+            var ascent=AscendantDifficulty.Active && !enemy.IsElite && !__instance.IsSiren && AspectRules.EliteMask((int)enemy.Info.EliteTypes)!=0 && UnityEngine.Random.value<ascendant.ExtraElites;
             if(enemy.IsElite || !Active(AspectRules.Elite) && !ascent)return;
             var type=(EliteType)AspectRules.ChooseElite((int)enemy.EliteType,(int)enemy.Info.EliteTypes,UnityEngine.Random.Range(0,int.MaxValue));
             // Generic EnemyCharacter.ServerSpawn has already set its native
@@ -138,6 +149,51 @@ internal static class AspectGameplay
         var source=__0?.TryCast<EnemyRewardLogic>();var npc=source?._character?.TryCast<NpcCharacter>();
         if(npc!=null && factors.TryGetValue(npc.Pointer,out var factor))__result=prisms.Apply(__result,factor.Prisms);
     }
-    private static void Disabled(NpcCharacter __instance){factors.Remove(__instance.Pointer);extraElites.Remove(__instance.Pointer);}
-    private static void Clear(){extraElites.Clear();factors.Clear();prisms.Clear();ScaledSpawns=ForcedElites=0;Error=null;}
+    private static void CompleteDeath(NpcCharacter __instance,NetworkConnection __0,NetworkObject __1,DamageType __2,float __4)
+    {
+        // Native damage and native death are separate messages. Finish a
+        // missing death confirmation only after the host applied real damage
+        // and finds an ordinary elite at zero health. Keep boss phase scripts,
+        // immunity, damage attribution, rewards and native death callbacks.
+        if(!__instance.IsServerStarted || !Active(AspectRules.Elite))return;
+        try
+        {
+            var enemy=__instance.TryCast<IEnemy>();if(enemy==null || __0==null)return;
+            if(!AspectRules.CompleteEliteDeath(true,true,__instance.IsSpawned,__instance.IsActive && !__instance.IsDead && __instance.CanTakeDamage,enemy.IsElite,ScriptedDeath(__instance),
+                __0.IsActive && __0.IsAuthenticated,__instance.CurrentHealth,__4) ||
+                completedDeaths.Contains(__instance.Pointer))return;
+            // Give the normal killer-client death message time to arrive. Do
+            // not race it, reset the deadline on another hit, or scan the world.
+            pendingDeaths.TryAdd(__instance.Pointer,new(__instance,__0.ClientId,__1,__2,Time.unscaledTime+.5f));
+        }
+        catch(Exception e){Report(e);}
+    }
+    internal static void Tick()
+    {
+        if(pendingDeaths.Count==0 || Time.unscaledTime<nextDeathCheck || Time.timeScale<=0)return;
+        nextDeathCheck=Time.unscaledTime+.1f;
+        foreach(var pair in pendingDeaths.ToArray())
+        {
+            var pending=pair.Value;if(Time.unscaledTime<pending.At)continue;
+            pendingDeaths.Remove(pair.Key);
+            try
+            {
+                var npc=pending.Enemy;if(npc==null)continue;
+                var enemy=npc.TryCast<IEnemy>();if(enemy==null)continue;
+                if(!AspectRules.CompleteEliteDeath(Active(AspectRules.Elite),npc.IsServerStarted,npc.IsSpawned,npc.IsActive && !npc.IsDead && npc.CanTakeDamage,
+                    enemy.IsElite,ScriptedDeath(npc),true,npc.CurrentHealth,1) || !completedDeaths.Add(pair.Key))continue;
+                // Dispatch the actual enemy's virtual ServerDeath: native
+                // rewards, task accounting, death effects and networking.
+                npc.RpcLogic___RpcServerDeath___3148112092(pending.Sender,pending.Type,false,pending.Owner);
+                // Native ServerDeath leaves local-killer cleanup to that
+                // client's next step. Complete it if the missing client was us.
+                if(!npc.IsDead)npc.AllClientsDeath(pending.Type,false,pending.Owner);
+                RecoveredDeaths++;
+            }
+            catch(Exception e){Report(e);}
+        }
+    }
+    private static bool ScriptedDeath(NpcCharacter npc)=>npc.IsSiren || npc.TryCast<DummyEnemy>()!=null;
+    private static void Disabled(NpcCharacter __instance){factors.Remove(__instance.Pointer);extraElites.Remove(__instance.Pointer);completedDeaths.Remove(__instance.Pointer);pendingDeaths.Remove(__instance.Pointer);}
+    private static void Clear(){AscendantDifficulty.ClearStage();pendingDeaths.Clear();completedDeaths.Clear();nextDeathCheck=0;extraElites.Clear();factors.Clear();prisms.Clear();ScaledSpawns=ForcedElites=RecoveredDeaths=0;Error=null;}
 }

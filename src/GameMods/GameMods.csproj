@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>Gatekeeper.CustomMods</AssemblyName><Version>0.15.4</Version><LangVersion>12</LangVersion>
+    <AssemblyName>Gatekeeper.CustomMods</AssemblyName><Version>0.15.8</Version><LangVersion>12</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../Shared/AspectRules.cs" Link="AspectRules.cs" />

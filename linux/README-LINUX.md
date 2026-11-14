@@ -1,17 +1,17 @@
-# Forge Expansion installer 0.15.5 — desktop Linux testing kit
+# Forge Expansion installer 0.15.8 — desktop Linux testing kit
 
-This kit runs natively on **x86-64 Linux** and installs the complete Windows expansion into **Gatekeeper running through Steam Proton**. It is a separate installer, with exactly the same gameplay plugins/assets as the Windows 0.15.5 release. It is not a port of Gatekeeper to native Linux.
+This kit runs natively on **x86-64 Linux** and installs the complete Windows expansion into **Gatekeeper running through Steam Proton**. It is a separate installer, with exactly the same gameplay plugins/assets as the Windows 0.15.8 release. It is not a port of Gatekeeper to native Linux.
 
 The installer was cross-built and its installation logic checked on Windows. **Linux game launch, audio and co-op still require testing.** Do not describe this package as Linux gameplay verified yet.
 
 ## Expansion news
 
-Read the complete developer-style article in `notices/news-forge-complete.md`. The included catalog and other news articles keep the update history together. To print the article without selecting or changing a game, run `bash Install-Forge.sh --news --cli`. Installer and gameplay are 0.15.5, including the revised relay placement; all co-op peers should update together.
+Read the complete developer-style article in `notices/news-forge-complete.md`. The included catalog and other news articles keep the update history together. To print the article without selecting or changing a game, run `bash Install-Forge.sh --news --cli`. Installer and gameplay are 0.15.8, including discovery on Ethereal Bridge regardless of stage; all co-op peers should update together.
 
 ## Install
 
 1. Install Gatekeeper in Steam. Run it once through Proton, then close the game.
-2. Extract the whole `Gatekeeper.ForgeExpansion-Linux-v0.15.5.tar.gz` archive into a folder you own.
+2. Extract the whole `Gatekeeper.ForgeExpansion-Linux-v0.15.8.tar.gz` archive into a folder you own.
 3. Run `Install-Forge.sh` using your file manager's **Run as program** option. If it opens in an editor, open a terminal in that folder and run `bash Install-Forge.sh`.
 4. Confirm the detected game location and choose **Install expansion**. Everything is included; there are no optional content switches.
 5. In Steam, open **Gatekeeper → Properties → General → Launch Options**. If the box is empty, paste:
@@ -21,7 +21,7 @@ Read the complete developer-style article in `notices/news-forge-complete.md`. T
    ```
 
    Preserve any existing options. If `WINEDLLOVERRIDES` already exists, add `winhttp.dll=n,b` to its semicolon-separated value. Do not create two override variables or duplicate `%command%`. The installer deliberately leaves Steam's configuration files alone because Steam may overwrite edits while running.
-6. Launch normally from Steam. The first modded launch may take longer while BepInEx generates bindings. Use the same expansion version as your Windows friends: **0.15.5 / protocol 12**.
+6. Launch normally from Steam. The first modded launch may take longer while BepInEx generates bindings. Use the same expansion version as your Windows friends: **0.15.8 / protocol 12**.
 
 The script uses Zenity or KDialog when available and otherwise provides terminal prompts. No separate .NET SDK/runtime, Wine installer, protontricks, root access or sudo is required for this installation kit. The system still needs Steam, Proton and the normal system libraries required by a self-contained .NET 8 Linux program. [BepInEx's Proton setup documentation](https://docs.bepinex.dev/master/articles/advanced/steam_interop.html#protonwine) describes the Windows loader and DLL override used here.
 
@@ -29,7 +29,7 @@ Regular Steam, Flatpak Steam and external libraries are detected. Standard `~/.s
 
 ## Updates, backups and removal
 
-Forge starts locked. Approach the fixed engineering relay in the west-side service bay off the left-hand route on Celestium's Ethereal Bridge from Stage 7 onward to unlock him for the current party. The account unlock persists in `BepInEx/config/local.gatekeeper.custommods.forge-progress.json`; installation does not grant it. Keep it with your personal saves and Cannon Wheel progress when moving PCs. Both progress files are included beside installer save backups.
+Forge starts locked. Approach the fixed engineering relay in the west-side service bay off the left-hand route on Celestium's Ethereal Bridge regardless of stage to unlock him for the current party. The account unlock persists in `BepInEx/config/local.gatekeeper.custommods.forge-progress.json`; installation does not grant it. Keep it with your personal saves and Cannon Wheel progress when moving PCs. Both progress files are included beside installer save backups.
 
 Run the kit again to update or repair. It refuses changes while Gatekeeper is running. It uses the same save protection, file ownership checks and interrupted-install recovery as the Windows installer.
 
@@ -55,4 +55,12 @@ For support, share the error shown by the installer and the game's `BepInEx/LogO
 
 Supported game: Steam app **2106670**, build **23057178**, Windows x64 / Unity **2022.3.62f2**, through Proton. The installer blocks other game binaries. This unofficial community expansion does not grant any official Steam DLC entitlements. Bundled notices are in `notices/`.
 
-Installer 0.15.5 retains gameplay content 0.15.4 and co-op protocol 12. It updates bundled runtimes and verifies cached installation components against the embedded manifest.
+Historical installer 0.15.5 retained gameplay content 0.15.4. Its runtime updates and package verification are retained in the current 0.15.8 / protocol 12 release.
+
+## Ascendant stage pacing
+
+Ascendant snapshots team build power and average character level when each combat stage loads. The opening stage has no Ascendant bonus. Its added health and extra-elite chance are 10% lower through character level 30, blend back over levels 31–50, and match the established formula from level 50. Items and levels gained during a stage affect the next stage. Native difficulty and the separate Scaling Aspect keep their own rules. The host's entry snapshot is retained for Continue in `BepInEx/config/local.gatekeeper.custommods.ascendant-stage.json` and included beside installer save backups.
+
+## Aspect fixes in 0.15.8
+
+Chaos, Scaling and Elite appear directly in the normal Single Player Aspects menu. Opening a private game is not required. The Elite Aspect now completes stalled zero-health deaths through native death/reward handling after a short confirmation grace period. Living enemies, boss phases and training dummies retain their existing behavior. Ascendant pacing and balance values are unchanged.

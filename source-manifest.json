@@ -1,24 +1,24 @@
 {
   "format": 1,
-  "installer": "0.15.5",
-  "gameplay": "0.15.4",
+  "installer": "0.15.8",
+  "gameplay": "0.15.8",
   "protocol": 12,
   "scope": "First-party source/project files and embedded runtime assets; raw bytes preserved by root Git attributes.",
   "files": [
     {
       "path": "src/GameMods/AscendantDifficulty.cs",
-      "bytes": 13575,
-      "sha256": "dd9c0bf0292239bc0630c834d22d973a13eee414360e3b7977d573f164b16fb1"
+      "bytes": 16432,
+      "sha256": "d4d3ac7b5877548b15a49049b15ce98dfb8a6c41b7c5c830d96ad1e062f041cd"
     },
     {
       "path": "src/GameMods/AspectGameplay.cs",
-      "bytes": 9081,
-      "sha256": "50bdfbc355557e9878b54fa72d578188e9041e5a1bac9d145206d1ed64a2fa79"
+      "bytes": 12793,
+      "sha256": "8c6bf612ce28abe2a6b76802fe903afdf9ac2bdd118a7e3c44c96f96ac3b8fa2"
     },
     {
       "path": "src/GameMods/AspectRegistry.cs",
-      "bytes": 11204,
-      "sha256": "58a7512de583962914f24c3ae54b2e43338a6b8033327f6303ec7d86021e5c62"
+      "bytes": 12876,
+      "sha256": "c92d8d3df65d4160bfe1930e322c26ba835e591132bf363db508cb9c249a3856"
     },
     {
       "path": "src/GameMods/Assets/Aspects/aspect-chaos.png",
@@ -427,8 +427,8 @@
     },
     {
       "path": "src/GameMods/ForgeLobby.cs",
-      "bytes": 8371,
-      "sha256": "cc657cd46daa5ef25e17ad9a40cc514619fd8d3f7c523884f3470236c5437562"
+      "bytes": 8494,
+      "sha256": "8bab0be058f2e5922541970010e39921c5108e0888754cea409af08893df2cfc"
     },
     {
       "path": "src/GameMods/ForgePassives.cs",
@@ -462,8 +462,8 @@
     },
     {
       "path": "src/GameMods/ForgeUnlock.cs",
-      "bytes": 12998,
-      "sha256": "94d2114d63eb6d2f2e22924a0bde0f9ab621547d1a771ea95abed1f6b1918e94"
+      "bytes": 12875,
+      "sha256": "1d42e13605cd5e91c940c85e480e47b1c0e02ed567e4abbeef5a58f5a2f268d9"
     },
     {
       "path": "src/GameMods/ForgeWorld.cs",
@@ -472,8 +472,8 @@
     },
     {
       "path": "src/GameMods/GameMods.csproj",
-      "bytes": 3315,
-      "sha256": "bfe9d17603f98b640ef0f19b3e91ed7a2552438230d7fcdfa6eaf40bef169958"
+      "bytes": 3278,
+      "sha256": "91f592959feab83c184aed65967607bd226d8a5fc9c3b351df5cb3e0b34df2c4"
     },
     {
       "path": "src/GameMods/GameWorldIndex.cs",
@@ -487,13 +487,13 @@
     },
     {
       "path": "src/GameMods/Plugin.cs",
-      "bytes": 7693,
-      "sha256": "4920693314ca98733be32ba6cc89e19dd953ca60298cb00cf0232cc6d791fb51"
+      "bytes": 7861,
+      "sha256": "62a3db29211288d8109985a08ce5057f3224cf1a3970f5103e7cbe923b772f10"
     },
     {
       "path": "src/GameMods/ShopBehaviour.cs",
-      "bytes": 3598,
-      "sha256": "7e9e7201c2a335112d12d5e627adf04f8f7b55420c5948f51f1b2606842e6ba1"
+      "bytes": 3634,
+      "sha256": "501f58d71498aa22cda3cc47e11123d5029d68cfa99b7435fd761cd849f83ae5"
     },
     {
       "path": "src/GameMods/ShopUI.Controller.cs",
@@ -557,8 +557,8 @@
     },
     {
       "path": "src/Manager/Manager.csproj",
-      "bytes": 1526,
-      "sha256": "7905806c169f1f2c25105965a9036bc382cc38d55f8cd94396155ea304f0b442"
+      "bytes": 1503,
+      "sha256": "f03275ef2755769b796ab0e9a2868ef5758908ba0183ece992b28009eda956ba"
     },
     {
       "path": "src/Manager/NewsPanel.cs",
@@ -577,8 +577,8 @@
     },
     {
       "path": "src/Manager.Core/ExpansionKit.cs",
-      "bytes": 16168,
-      "sha256": "ec4120e245594036079df677a3fdb92f512addf7e5b2bc2a1b491d083ee98a25"
+      "bytes": 15928,
+      "sha256": "8bec3b06c5258685d307d8dcc0377d79b15cc2cc2afd6d29aaa6604c4c9cc357"
     },
     {
       "path": "src/Manager.Core/ExpansionNews.cs",
@@ -587,8 +587,8 @@
     },
     {
       "path": "src/Manager.Core/GameService.cs",
-      "bytes": 21983,
-      "sha256": "6f8d4d43057e479fb2e4c8cc1b395e23480da7b8a22af26c67c18c38d279386f"
+      "bytes": 22001,
+      "sha256": "35dabdda55f4b9a8d1bc2093beb9e8a2e37eef091e30acf5e568de84a80e7281"
     },
     {
       "path": "src/Manager.Core/LinuxSteam.cs",
@@ -627,8 +627,8 @@
     },
     {
       "path": "src/Manager.Linux/Manager.Linux.csproj",
-      "bytes": 1162,
-      "sha256": "5e23af47efc4131e0d73d47cde49da2779162008bf6dd0ec2c5f09935dd15392"
+      "bytes": 1144,
+      "sha256": "2a0eaeee426ca43128a7a574b5f02300fa91c10b5135e79435055a7a53564fe0"
     },
     {
       "path": "src/Manager.Linux/Program.cs",
@@ -637,8 +637,8 @@
     },
     {
       "path": "src/Manager.Tests/AscendantRetuneChecks.cs",
-      "bytes": 3095,
-      "sha256": "cc2693bec8470ebe1f63d53cb75c8d8423a6b449e0d9768120107ead7dfff53d"
+      "bytes": 7696,
+      "sha256": "24dceb46ff84831e1bf064c0a624392fecd1e1cd85bc7debdaf2f3bb5316bb6a"
     },
     {
       "path": "src/Manager.Tests/CacheSecurityChecks.cs",
@@ -657,8 +657,8 @@
     },
     {
       "path": "src/Manager.Tests/ExpansionNewsChecks.cs",
-      "bytes": 4719,
-      "sha256": "99f6da751c9f77e15d7cb11b59667fe051edc729c5cdee09a3fbb0a5143bb292"
+      "bytes": 4946,
+      "sha256": "f995061604d84274e068e345b061087cf29b6bd2699d690abc4bf511289fb9c0"
     },
     {
       "path": "src/Manager.Tests/FinalReleaseChecks.cs",
@@ -677,8 +677,8 @@
     },
     {
       "path": "src/Manager.Tests/ForgeUnlockChecks.cs",
-      "bytes": 5852,
-      "sha256": "7550eb2f83a544fdf7ca1a82957eeb817fcff7708f19ccb1fe7f0c17c0678c19"
+      "bytes": 5999,
+      "sha256": "6a3aeb70986d67f23d23d8be773ed0c9f302901b2fb68e419b53c79dcefd9cae"
     },
     {
       "path": "src/Manager.Tests/LinuxInstallerChecks.cs",
@@ -692,18 +692,18 @@
     },
     {
       "path": "src/Manager.Tests/Program.cs",
-      "bytes": 70600,
-      "sha256": "738a886a19d2ee600166c4345109207e06383943cee022dcda106dd24b501f44"
+      "bytes": 72613,
+      "sha256": "2ed4734f135ff6823ec858ee752c04062b1d084b64a2eaab0b22df28e8120e55"
     },
     {
       "path": "src/Shared/AscendantRules.cs",
-      "bytes": 1577,
-      "sha256": "3b56931b01a870cb6f76135ed6093e083f723356a9be0c45fdba6991f9e8c612"
+      "bytes": 4419,
+      "sha256": "bd78c138cb914e1ff6d051f758de06e91ebc328dcf8bc95d2c0ceffbe305200f"
     },
     {
       "path": "src/Shared/AspectRules.cs",
-      "bytes": 2717,
-      "sha256": "7032eab1ab07e76e56a792a4502b70a3d62bfcda82acbc98f8eac91791d45808"
+      "bytes": 3287,
+      "sha256": "6a3adf9b4a4c9bea81f19fe45e44c5e50455f299784d0aade367dbe19000f562"
     },
     {
       "path": "src/Shared/BalanceMath.cs",
@@ -742,8 +742,8 @@
     },
     {
       "path": "src/Shared/ForgeRules.cs",
-      "bytes": 7724,
-      "sha256": "43577e64df28092797258dbbf6d8ba96940bad6f8e17feb90d745b1da381d98d"
+      "bytes": 7591,
+      "sha256": "3393b2c6544db7d2c067b0c1556e9418f69ef693bf42a2a1410205f6c42b56e7"
     },
     {
       "path": "src/Shared/ForgeTooltips.cs",
@@ -752,8 +752,8 @@
     },
     {
       "path": "src/Shared/ForgeUnlockRules.cs",
-      "bytes": 2610,
-      "sha256": "59e1437f4faf1b8b83a4fa8ab22d360a92dbf41b7cfcc91b038907cd327364ed"
+      "bytes": 2593,
+      "sha256": "a81578c07c7fa15a640fd76c0db03264dd52feb777b0ab639f1675434e3994fc"
     },
     {
       "path": "src/Shared/ItemCapRules.cs",

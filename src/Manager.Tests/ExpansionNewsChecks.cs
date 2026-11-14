@@ -9,8 +9,9 @@ internal static class ExpansionNewsChecks
         var forge = news.Index.Expansions.SingleOrDefault(e => e.Id == "forge")?.Articles.SingleOrDefault(a => a.Id == "forge-complete");
         check(forge != null && news.Index.Expansions.SelectMany(e => e.Articles).Any(a => a.Id == news.Index.FeaturedArticleId), "The full Forge article or configured featured entry is missing.");
         var full = news.Markdown(forge!);
-        foreach (var subject in new[] { "Cannon Wheel", "Item Exchange", "Prism Jackpot", "Rivet Cannon", "Volatile Charge", "Aegis Field", "Field Engineer", "Aspect of Chaos", "Aspect of Scaling", "Aspect of Elite", "Ascendant", "Seven more songs", "controller", "performance", "Stage 7", "25 stacks" })
+        foreach (var subject in new[] { "Cannon Wheel", "Item Exchange", "Prism Jackpot", "Rivet Cannon", "Volatile Charge", "Aegis Field", "Field Engineer", "Aspect of Chaos", "Aspect of Scaling", "Aspect of Elite", "Ascendant", "Seven more songs", "controller", "performance", "Ethereal Bridge", "25 stacks" })
             check(full.Contains(subject, StringComparison.OrdinalIgnoreCase), "Complete expansion notes omit " + subject);
+        check(full.Contains("regardless of stage",StringComparison.OrdinalIgnoreCase) && !full.Contains("Stage 7",StringComparison.OrdinalIgnoreCase),"Current expansion notes still require Stage 7 to discover Forge.");
         check(news.Index.Expansions.SelectMany(e => e.Articles).All(a => news.Markdown(a).StartsWith("# " + a.Title + "\n")), "A bundled article has no matching headline.");
         check(Version.Parse(ExpansionKit.Version) >= Version.Parse(ExpansionKit.ContentVersion), "The installer version is older than its bundled gameplay.");
         // A second expansion and any number of updates are editorial additions;

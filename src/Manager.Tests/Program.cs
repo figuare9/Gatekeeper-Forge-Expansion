@@ -10,6 +10,20 @@ void Fails(Action action, string message)
 Check(new[]{AspectRules.Chaos,AspectRules.Scaling,AspectRules.Elite}.Distinct().Count()==3 &&
     new[]{AspectRules.Chaos,AspectRules.Scaling,AspectRules.Elite}.All(i=>i>20 && AspectRules.IsCustom(i)),"Expansion Aspect IDs collide with native types or cannot fit the native byte wire format.");
 Check(!AspectRules.IsCustom(0) && !AspectRules.IsCustom(1) && !AspectRules.IsCustom(20) && !AspectRules.IsCustom(255),"An expansion Aspect captured a native/unknown ID.");
+var firstSoloCells=AspectRules.MissingCells(new[]{0,1,2},Array.Empty<int>());
+Check(firstSoloCells.SequenceEqual(new[]{0,1,2,240,241,242}),"A cold single-player Aspect menu omitted the new cells or reordered stock cells.");
+Check(AspectRules.MissingCells(firstSoloCells,firstSoloCells).Length==0,"Reopening the Aspects menu duplicated cells.");
+Check(AspectRules.MissingCells(Array.Empty<int>(),new[]{0,1,240}).SequenceEqual(new[]{241,242}),"Repairing an already-built solo panel omitted a missing Aspect or duplicated Chaos.");
+Check(!AspectRules.MissingCells(new[]{243,240,240,1},Array.Empty<int>()).Contains(243) &&
+    AspectRules.MissingCells(new[]{243,240,240,1},Array.Empty<int>()).Distinct().Count()==4,"The hidden Ascendant setting gained a cell or duplicated an Aspect.");
+bool FinishElite(float health,float hit,bool server=true,bool spawned=true,bool alive=true,bool elite=true,bool boss=false,bool auth=true,bool active=true)=>
+    AspectRules.CompleteEliteDeath(active,server,spawned,alive,elite,boss,auth,health,hit);
+Check(FinishElite(0,110) && FinishElite(-.01f,110),"A zero-health elite with an accepted damaging hit cannot finish its native death.");
+Check(!FinishElite(.01f,110) && !FinishElite(250,110),"Elite recovery killed an enemy with health remaining.");
+Check(!FinishElite(0,110,server:false) && !FinishElite(0,110,auth:false) && !FinishElite(0,110,active:false),"A client, unauthenticated hit or disabled Aspect can force elite death.");
+Check(!FinishElite(0,110,spawned:false) && !FinishElite(0,110,alive:false),"A pooled or already-dead enemy can receive duplicate death handling.");
+Check(!FinishElite(0,110,elite:false) && !FinishElite(0,110,boss:true),"Elite recovery changed a native non-elite or a scripted boss phase.");
+Check(!FinishElite(float.NaN,110) && !FinishElite(float.NegativeInfinity,110) && !FinishElite(0,float.PositiveInfinity) && !FinishElite(0,0) && !FinishElite(0,-1),"Invalid damage, healing or invalid health bypassed the elite death guard.");
 Check(AspectRules.SpawnMultiplier(1,false)==1 && AspectRules.SpawnMultiplier(1.5f,false)==1.5f,"Disabled Chaos changed native Swarm.");
 Check(AspectRules.SpawnMultiplier(1,true)==1.75f && AspectRules.SpawnMultiplier(1.5f,true)==2.25f,"Chaos and Swarm must add 75% + 50%, rather than multiply.");
 Check(AspectRules.TeamFactor(Array.Empty<int>())==1 && AspectRules.TeamFactor(new[]{0,-1,1})==1,"Missing/uninitialised players changed level-one scaling.");

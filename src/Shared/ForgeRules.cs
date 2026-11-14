@@ -5,7 +5,7 @@ public static class ForgeRules
     public const int CharacterId = 30002;
     public const ushort CollectionId = 30200;
     public const string Key = "gkmm.forge";
-    public const string Revision = "forge-kit-15-4";
+    public const string Revision = "forge-kit-15-8";
     public const float RivetSpeed = 120;
     public const float RivetRange = 36;
     public const float RivetRadius = .20f;

@@ -7,11 +7,12 @@ internal static class ForgeUnlockChecks
 {
     internal static void Run(Action<bool,string> check,string root)
     {
-        check(ForgeUnlockRules.Eligible(true,201,6,true,12.25f,2),"Stage 7 at the approach boundary did not qualify.");
-        check(!ForgeUnlockRules.Eligible(true,201,5,true,0,0) && !ForgeUnlockRules.Eligible(true,101,6,true,0,0),"An early/wrong map unlocked Forge.");
-        check(!ForgeUnlockRules.Eligible(false,201,6,true,0,0) && !ForgeUnlockRules.Eligible(true,201,6,false,0,0),"A menu/dead player unlocked Forge.");
-        check(!ForgeUnlockRules.Eligible(true,201,6,true,12.26f,0) && !ForgeUnlockRules.Eligible(true,201,6,true,0,2.01f),"The lever unlocked across its distance/height bounds.");
-        check(!ForgeUnlockRules.Eligible(true,201,6,true,float.NaN,0) && !ForgeUnlockRules.Eligible(true,201,6,true,-1,0),"Malformed distance qualified for the lever.");
+        check(ForgeUnlockRules.InLevel(true,201) && !ForgeUnlockRules.InLevel(false,201) && !ForgeUnlockRules.InLevel(true,101),"Relay availability did not depend solely on active Ethereal Bridge gameplay.");
+        check(ForgeUnlockRules.Eligible(true,201,true,12.25f,2),"Ethereal Bridge at the approach boundary did not qualify.");
+        check(!ForgeUnlockRules.Eligible(true,101,true,0,0),"A different map unlocked Forge.");
+        check(!ForgeUnlockRules.Eligible(false,201,true,0,0) && !ForgeUnlockRules.Eligible(true,201,false,0,0),"A menu/dead player unlocked Forge.");
+        check(!ForgeUnlockRules.Eligible(true,201,true,12.26f,0) && !ForgeUnlockRules.Eligible(true,201,true,0,2.01f),"The lever unlocked across its distance/height bounds.");
+        check(!ForgeUnlockRules.Eligible(true,201,true,float.NaN,0) && !ForgeUnlockRules.Eligible(true,201,true,-1,0),"Malformed distance qualified for the lever.");
         check(MathF.Sqrt(MathF.Pow(ForgeUnlockRules.RelayX+4.87f,2)+MathF.Pow(ForgeUnlockRules.RelayZ+285.03f,2))>100 && ForgeUnlockRules.RelayYaw%90==0,"The discovery socket returned to the entrance or lost architectural alignment.");
         check(ForgeUnlockRules.Supported(0,.04f,1) && !ForgeUnlockRules.Supported(0,.2f,1) && !ForgeUnlockRules.Supported(0,0,.9f) && !ForgeUnlockRules.Supported(float.NaN,0,1),"Relay support accepted a step, steep surface or invalid height.");
         var data=new ForgeUnlockData();const string account="76561198000000001",other="76561198000000002";var proof=Guid.NewGuid().ToString("N");

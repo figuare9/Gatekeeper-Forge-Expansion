@@ -6,6 +6,7 @@ using Gatekeeper.General.Aspects;
 using Gatekeeper.Infrastructure.Providers.InfoProviders;
 using Gatekeeper.Interfaces;
 using Gatekeeper.General.Predictor;
+using Gatekeeper.General.EnemySpawners;
 using Gatekeeper.MainMenuScripts.MainMenu.AspectsPanel;
 using Gatekeeper.MainMenuScripts.MainMenu.CharacterSelectPanel;
 using Gatekeeper.Mods;
@@ -31,8 +32,12 @@ internal static class AscendantDifficulty
     private static bool? savedChoice;
     private static string ChoicePath=>System.IO.Path.Combine(BepInEx.Paths.ConfigPath,Plugin.Id+".ascendant-choice.json");
     private static bool host;
-    private static float next,sampleAt;
-    internal static float Power {get;private set;}=1;
+    private static float next;
+    private static readonly AscendantStageCache stage=new();
+    private static string StagePath=>System.IO.Path.Combine(BepInEx.Paths.ConfigPath,Plugin.Id+".ascendant-stage.json");
+    internal static float Power=>stage.Current?.Power??1;
+    internal static float TeamLevel=>stage.Current?.TeamLevel??1;
+    internal static AscendantFactors FrozenFactors=>stage.Current?.Factors()??AscendantFactors.Unscaled;
     internal static bool Active=>AspectGameplay.Active(AscendantRules.SaveId);
     internal static string? Error {get;private set;}
     internal static bool Selected
@@ -46,6 +51,9 @@ internal static class AscendantDifficulty
     }
     internal static void Patch(Harmony h)
     {
+        // Native SceneInitializer awaits character setup, then invokes this
+        // concrete spawner init before starting tasks/events and enemy waves.
+        h.Patch(AccessTools.DeclaredMethod(typeof(EnemySpawner),nameof(EnemySpawner.ServerInit)),prefix:new(typeof(AscendantDifficulty),nameof(StageStarting)));
         h.Patch(AccessTools.Method(typeof(PanelDifficulty),nameof(PanelDifficulty.Setup)),postfix:new(typeof(AscendantDifficulty),nameof(Setup)));
         h.Patch(AccessTools.Method(typeof(GameDifficultyIndicator),"UpdateDifficulty"),postfix:new(typeof(AscendantDifficulty),nameof(Hud)));
         h.Patch(AccessTools.PropertyGetter(typeof(AspectsPanelController),nameof(AspectsPanelController.SelectedAspectsCount)),postfix:new(typeof(AscendantDifficulty),nameof(Count)));
@@ -152,18 +160,47 @@ internal static class AscendantDifficulty
         toggle.SetIsOnWithoutNotify(Selected);
         toggle.interactable=host && LobbyManager._instance?.IsLocked!=true && ForgeLobby.CanUseAspects;
         if(label!=null)label.text="<color=#8BE6FF><b>ASCENDANT</b></color>  <b>"+(Selected?"ON":"OFF")+"</b>"+
-            "\n<size=90%>Enemies adapt as your build grows.\nTougher foes. More elite encounters.</size>";
+            "\n<size=90%>Challenge adapts at each new stage.\nA gentler start. Tougher foes ahead.</size>";
     }
     private static void Hud(GameDifficultyIndicator __instance)
     {
         if(GlobalPredictor.Aspects.Contains((EAspect)AscendantRules.SaveId) || Active)
             __instance.difficultyText.text+="\n<size=70%><color=#65D6FF>ASCENDANT</color></size>";
     }
-    internal static float SamplePower()
+    private static void StageStarting(EnemySpawner __instance)
     {
-        if(Time.unscaledTime<sampleAt)return Power;
-        sampleAt=Time.unscaledTime+2;
-        var powers=new List<float>(4);
+        if(!__instance.IsServerStarted || !Active)return;
+        try{StageFactors();}catch(Exception e){Report(e);}
+    }
+    internal static AscendantFactors StageFactors()
+    {
+        if(!Active)return AscendantFactors.Unscaled;
+        var session=GlobalPredictor.CurrentSessionId;
+        var scene=(int)GlobalPredictor.CurrentScene;
+        var completed=GlobalPredictor.LocationsCompleteCount;
+        if(!CannonRules.InCombatLevel(true,scene) || string.IsNullOrWhiteSpace(session))return AscendantFactors.Unscaled;
+        if(stage.Matches(session,scene,completed))return stage.Current!.Factors();
+        // The exact entry snapshot survives a process restart/Continue. A
+        // different session, map, stage or tuning revision never reuses it.
+        try
+        {
+            if(System.IO.File.Exists(StagePath) && stage.Restore(System.Text.Json.JsonSerializer.Deserialize<AscendantStageSnapshot>(System.IO.File.ReadAllText(StagePath)),session,scene,completed))
+                return stage.Current!.Factors();
+        }
+        catch(Exception e){Plugin.Logger.LogWarning("Ascendant entry snapshot could not be restored: "+e.Message);}
+        var factors=stage.Capture(session,scene,completed,SampleTeam);
+        try
+        {
+            System.IO.File.WriteAllText(StagePath+".tmp",System.Text.Json.JsonSerializer.Serialize(stage.Current));
+            System.IO.File.Move(StagePath+".tmp",StagePath,true);
+        }
+        catch(Exception e){Plugin.Logger.LogWarning("Ascendant entry snapshot could not be saved: "+e.Message);}
+        Plugin.Logger.LogInfo($"Ascendant stage entry frozen: stage {completed+1}, scene {scene}, team level {TeamLevel:F2}, power {Power:F3}, health {factors.Health:F3}x, added elites {factors.ExtraElites:P1}.");
+        return factors;
+    }
+    private static (float Power,float TeamLevel) SampleTeam()
+    {
+        var powers=new List<float>(4);double levels=0;
         foreach(var p in GameWorldIndex.Players())
         {
             if(!p.IsSpawned || p.Data?.DamageData==null || p.Data.AttackSpeedData==null || p.PlayableCharacterInfo==null)continue;
@@ -176,9 +213,12 @@ internal static class AscendantDifficulty
             // Do not count their item modifiers a second time.
             powers.Add(AscendantRules.Power(damage.FinalDamage/Math.Max(.01f,Base(StatType.Damage,40)),
                 p.Data.AttackSpeedData.AttackSpeed/Math.Max(.01f,Base(StatType.AttackSpeed,1)),crit/baseCrit));
+            levels+=Math.Max(1,p.Data.ActualLevel);
         }
-        Power=AscendantRules.TeamPower(powers);return Power;
+        if(powers.Count==0)Plugin.Logger.LogWarning("Ascendant found no initialized players at stage entry; retaining native Ascendant factors for this stage.");
+        return (AscendantRules.TeamPower(powers),powers.Count==0?1:(float)(levels/powers.Count));
     }
+    internal static void ClearStage()=>stage.Clear();
     internal static void Tick()
     {
         if(Time.unscaledTime<next)return;next=Time.unscaledTime+.5f;
@@ -192,7 +232,7 @@ internal static class AscendantDifficulty
                 lobby.ServerUpdateAspectsPanel((EAspect)AscendantRules.SaveId,savedChoice??preferred?.Value??true);
             }
             if(lobby==null)initializedLobby=0;
-            Sync();if(!Active){Power=1;sampleAt=0;}
+            Sync();if(!Active)ClearStage();
         }
         catch(Exception e){Report(e);}
     }

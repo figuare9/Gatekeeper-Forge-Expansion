@@ -34,8 +34,8 @@ internal static class ForgeUnlock
     internal static bool Unlocked {get{Load();return data.Unlocked(account);}}
     internal static string State=>!InLevel?"absent":art==null?"waiting for terrain":pulled?"activated":"ready";
     private static string ProgressFile=>Path.Combine(Paths.ConfigPath,Plugin.Id+".forge-progress.json");
-    private static bool InLevel=>ForgeRegistry.Enabled && GlobalPredictor.GameState==GameState.Gameplay &&
-        (int)GlobalPredictor.CurrentScene==ForgeUnlockRules.Scene && GlobalPredictor.LocationsCompleteCount>=ForgeUnlockRules.EarliestCompletedStages;
+    private static bool InLevel=>ForgeRegistry.Enabled && ForgeUnlockRules.InLevel(
+        GlobalPredictor.GameState==GameState.Gameplay,(int)GlobalPredictor.CurrentScene);
     // Fixed authored map socket. Only Y is resolved against native terrain.
     private static readonly Vector3 Socket=new(ForgeUnlockRules.RelayX,0,ForgeUnlockRules.RelayZ);
     private static readonly Vector3[] Footprint={Vector3.zero,
@@ -151,7 +151,7 @@ internal static class ForgeUnlock
             {
                 if(!player.IsSpawned || !SlotNetwork.ForgePeer(player.OwnerId) || granted.Contains((player.OwnerId,player.NetworkObject.ObjectId)) || !player.IsActiveAndAlive)continue;
                 var delta=player.CachedTransform.position-point;
-                if(!ForgeUnlockRules.Eligible(true,(int)GlobalPredictor.CurrentScene,GlobalPredictor.LocationsCompleteCount,true,new Vector2(delta.x,delta.z).sqrMagnitude,delta.y) ||
+                if(!ForgeUnlockRules.Eligible(true,(int)GlobalPredictor.CurrentScene,true,new Vector2(delta.x,delta.z).sqrMagnitude,delta.y) ||
                     Physics.Linecast(player.CachedTransform.position+Vector3.up,point+Vector3.up,ForgeUnlockRules.StaticGeometryMask,QueryTriggerInteraction.Ignore))continue;
                 if(!pulled){pulled=true;token=Guid.NewGuid().ToString("N");art.Pull();SlotNetwork.Publish(new(){Kind="forgeUnlock",ForgeUnlock=new(){Kind="pulled",Scene=ForgeUnlockRules.Scene,Token=token}});}
                 // Every current participant earns the discovery together. A

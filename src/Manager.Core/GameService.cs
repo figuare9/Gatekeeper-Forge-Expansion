@@ -158,7 +158,7 @@ public sealed partial class GameService
                     zip.CreateEntryFromFile(file, relative.Replace('\\', '/'), CompressionLevel.Optimal);
                 }
             File.Move(partial, output);
-            foreach(var name in new[]{"cannon-progress","forge-progress"})
+            foreach(var name in new[]{"cannon-progress","forge-progress","ascendant-stage"})
             {
                 var progress=Inside(Root,$"BepInEx/config/{CustomPluginId}.{name}.json");
                 if(File.Exists(progress))File.Copy(progress,Path.ChangeExtension(output,name+".json"),overwrite:false);

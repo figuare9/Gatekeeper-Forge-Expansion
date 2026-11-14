@@ -2,8 +2,8 @@ namespace Gatekeeper.ModManager;
 
 public static class ExpansionKit
 {
-    public const string Version = "0.15.5";
-    public const string ContentVersion = "0.15.4";
+    public const string Version = "0.15.8";
+    public const string ContentVersion = "0.15.8";
     public const string Name = "Gatekeeper · Forge Expansion";
 
     // One tested content package for every player. Legacy balance sliders are

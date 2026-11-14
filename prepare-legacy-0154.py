@@ -27,5 +27,5 @@ if not args.skip_sdk_copy:
     if not (sdk/'dotnet.exe').is_file():raise SystemExit('Prepare SDK 8 with bootstrap.py first.')
     shutil.copytree(sdk,destination/'tools/dotnet')
 print('Legacy 0.15.4 inputs prepared at',destination)
-print('This intentionally retains the historical obsolete runtime and pre-hardening code. Review only; 0.15.5 is maintained.')
+print('This intentionally retains the historical obsolete runtime and pre-hardening code. Review only; the root checkout contains the maintained release.')
 print('Supply locally generated legacy game bindings adjacent to the project before running its original build scripts. Read the historical guide.')

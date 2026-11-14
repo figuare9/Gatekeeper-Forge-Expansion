@@ -76,6 +76,8 @@ internal static class ForgeLobby
         get
         {
             if(!AspectRegistry.Registered)return false;
+            // Local transport has no remote compatibility handshake to await.
+            if(Plugin.Solo())return true;
             var lobby=LobbyManager._instance;
             if(lobby==null || !lobby.IsSpawned)return Plugin.Solo();
             return endpoint!=null && endpoint.Pointer==lobby.Pointer && (endpoint.IsServerStarted?AllAspectPeersReady():aspectsReady && Time.unscaledTime-seen<7);

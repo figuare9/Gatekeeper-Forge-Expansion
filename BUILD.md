@@ -2,13 +2,20 @@
 
 ## Scope and requirements
 
-Build on Windows x64 with PowerShell 7, Python 3.10+ and network access for the initial dependency download/restore. `bootstrap.py` uses only Python's standard library. It obtains SDK **8.0.427** (net6 gameplay compiler), SDK **10.0.403** (installer/loader), the pinned upstream BepInEx base distribution, official runtime **10.0.14**, and the pinned Unity support ZIP (included under `vendor/UnitySupport` to avoid upstream download failures). URLs and SHA-512/SHA-256 values are in `dependencies.lock.json`; SDK/runtime digests came from Microsoft's release metadata. NuGet dependencies and exact resolved versions are in `vendor/BepInEx/**/packages.lock.json`.
+Build on Windows x64 with PowerShell 7, Python 3.11+ and network access for the initial dependency download/restore. `bootstrap.py` uses only Python's standard library. It obtains SDK **8.0.427** (net6 gameplay compiler), SDK **10.0.403** (installer/loader), the pinned upstream BepInEx base distribution, official runtime **10.0.14**, and the pinned Unity support ZIP (included under `vendor/UnitySupport` to avoid upstream download failures). URLs and SHA-512/SHA-256 values are in `dependencies.lock.json`; SDK/runtime digests came from Microsoft's release metadata. NuGet dependencies and exact resolved versions are in `vendor/BepInEx/**/packages.lock.json`.
 
 Compilation of gameplay requires generated IL2CPP reference assemblies from your own legitimate **Gatekeeper Steam build 23057178**, Unity 2022.3.62f2. Neither owning this source nor installing the community expansion grants official game/DLC entitlements. The installer/pure-rule tests can run without game files; full gameplay compilation requires local bindings.
 
 ## 1. Get the source and prepare dependencies
 
-Clone into a writable folder. Keep this layout for the existing relative project references:
+Clone the review tag into a writable folder (create `ReviewWorkspace` first):
+
+```powershell
+git clone --branch v0.15.8-source --depth 1 https://github.com/figuare9/Gatekeeper-Forge-Expansion.git ReviewWorkspace/Gatekeeper-Forge-Expansion
+cd ReviewWorkspace/Gatekeeper-Forge-Expansion
+```
+
+Keep this layout for the existing relative project references:
 
 ```text
 ReviewWorkspace/
@@ -40,7 +47,7 @@ Bootstrap verifies downloaded archives and the included Unity support ZIP before
 ./tools/dotnet10/dotnet.exe run --project ./src/Manager.Tests/Manager.Tests.csproj -c Release
 ```
 
-The regular suite has 701 checks at this snapshot. Installer tests use synthetic game/save fixtures. They check path/ownership safety, transactional installs, recovery/removal, Linux/Proton discovery, owner-scoped multiplayer rules, pricing and pure gameplay rules; they do not replace native gameplay tests.
+The regular suite has 744 checks at this snapshot. Installer tests use synthetic game/save fixtures. They check path/ownership safety, transactional installs, recovery/removal, Linux/Proton discovery, owner-scoped multiplayer rules, pricing and pure gameplay rules; they do not replace native gameplay tests.
 
 ## 3. Generate local game reference assemblies
 
@@ -59,10 +66,10 @@ Do not commit or redistribute the generated bindings, game executable, GameAssem
 This rebuilds the compatibility loader, runs the normal checks, compiles both gameplay plugins, builds a manifest-bound payload, runs the checks with that actual payload, and publishes the self-contained Windows EXE:
 
 ```text
-release/Gatekeeper.ForgeExpansion-Setup-v0.15.5.exe
+release/Gatekeeper.ForgeExpansion-Setup-v0.15.8.exe
 ```
 
-The actual-payload suite has 713 checks. `build.ps1` alone creates a development publish. Neither build script installs the expansion or launches the game. `build-portable.ps1` may fetch a missing upstream license; bootstrap and NuGet restore also use the network. The player installer itself uses embedded components instead of downloading the expansion at install time.
+The actual-payload suite has 756 checks. `build.ps1` alone creates a development publish. Neither build script installs the expansion or launches the game. `build-portable.ps1` may fetch a missing upstream license; bootstrap and NuGet restore also use the network. The player installer itself uses embedded components instead of downloading the expansion at install time.
 
 ## 5. Cross-publish the desktop Linux installer
 
@@ -72,10 +79,30 @@ After the Windows payload exists:
 ./build-linux.ps1
 ```
 
-Output: `release/Gatekeeper.ForgeExpansion-Linux-v0.15.5.tar.gz`. It reuses the same payload, reruns payload checks, publishes a native Linux x64 installer and adds executable modes in the TAR. It targets the Windows game under Steam/Flatpak Steam Proton, not a native Linux Gatekeeper build. Cross-publishing does not prove Linux gameplay compatibility.
+Output: `release/Gatekeeper.ForgeExpansion-Linux-v0.15.8.tar.gz`. It reuses the same payload, reruns payload checks, publishes a native Linux x64 installer and adds executable modes in the TAR. It targets the Windows game under Steam/Flatpak Steam Proton, not a native Linux Gatekeeper build. Cross-publishing does not prove Linux gameplay compatibility.
+
+## 6. Validate the supplied source inventory
+
+`source-manifest.json` records the SHA-256 and size of all 156 first-party files under `src`, including 61 embedded-asset inputs. Verify them without loading the game:
+
+```powershell
+python -B ./verify-source.py
+```
+
+This also verifies the preserved original source/assets and dependency lock inventories. It is an inventory check, not security certification.
+
+## Optional: compare rebuilt managed assemblies
+
+After bootstrap/build, the supplied helper can compare two managed DLLs without executing them:
+
+```powershell
+./tools/dotnet10/dotnet.exe run --project ./tools/AssemblyCompare/AssemblyCompare.csproj -c Release -- "path/to/original/Gatekeeper.CustomMods.dll" "path/to/rebuilt/Gatekeeper.CustomMods.dll"
+```
+
+It reports normalized method-body and embedded-resource differences and returns a nonzero exit code for method differences or resource differences other than the reported embedded `Payload.zip`. Installer payload archives can differ through packaging metadata and must be inspected separately. This compares managed DLLs, not the native single-file EXE/ELF host or PDB metadata; it is not a security certification. The source-publication comparison results and their limits are in [current validation](docs/SOURCE_EXPORT_VALIDATION_0_15_8.md).
 
 ## Release comparison and older version
 
-Published original 0.15.5 hashes are in `SECURITY_REVIEW.md`. A functional rebuild may have different hashes because of build paths, assembly debugging information, ZIP timestamps/ordering or packaging. Do not claim bit-for-bit reproducibility without controlling and comparing all inputs. Source snapshots and asset inventories establish what is supplied for review; the binary hashes identify the originally tested installer.
+Published original 0.15.8 hashes are in `SECURITY_REVIEW.md`. A functional rebuild may have different hashes because of build paths, assembly debugging information, ZIP timestamps/ordering or packaging. Do not claim bit-for-bit reproducibility without controlling and comparing all inputs. Source snapshots and asset inventories establish what is supplied for review; the binary hashes identify the originally tested installer.
 
-The original quarantined file was **0.15.4**, using different runtime/dependency and cache-handling code. `historical/installer-0.15.4` preserves its exact first-party code snapshot and recorded hashes. Read its separate guide before evaluating the old upload. Current `main` is the corrected 0.15.5 build and is not a claim that the quarantined 0.15.4 binary contains those fixes.
+The original quarantined file was **0.15.4**, using different runtime/dependency and cache-handling code. `historical/installer-0.15.4` preserves its exact first-party code snapshot and recorded hashes. Read its separate guide before evaluating the old upload. Current `main` and tag `v0.15.8-source` contain installer/gameplay 0.15.8 and is not a claim that the quarantined 0.15.4 binary contains those fixes.

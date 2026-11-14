@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
-    <AssemblyName>Gatekeeper.ModManager</AssemblyName><Version>0.15.5</Version>
+    <AssemblyName>Gatekeeper.ModManager</AssemblyName><Version>0.15.8</Version>
     <Product>Gatekeeper Forge Expansion Installer</Product>
     <Description>Complete community expansion installation kit for Gatekeeper.</Description>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>

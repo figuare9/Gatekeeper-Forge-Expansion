@@ -4,7 +4,7 @@ Good news, Gatekeepers: Forge is ready to join the fight. What began as a new ch
 
 The idea behind Forge is simple: take a position, build it up, and make the enemy pay for every step. Heavy rivets punch through the front line while sentries cover the approaches. Magnetic charges gather enemies together, and a healing shield gives the team somewhere to hold its ground. Forge trades speed for preparation, durability, and sustained firepower.
 
-These are the complete expansion notes for version **0.15.4**, including the latest Ascendant balance pass and Forge discovery placement improvements. The installer includes this offline news library and earlier update articles.
+These are the complete expansion notes for version **0.15.8**, including single-player Aspect visibility, zero-health elite death recovery, and stage-based Ascendant pacing and Forge discovery on Ethereal Bridge regardless of stage. The installer includes this offline news library and earlier update articles.
 
 ## At a glance
 
@@ -22,7 +22,7 @@ Forge enters combat with **250 health, 2 base regeneration, and 9 movement speed
 
 Movement follows the same general approach as Tech Hunter: Forge turns smoothly toward his movement direction while traveling freely. Firing quickly turns him toward the target and keeps cursor-directed aiming active for three seconds before returning to free movement. Walk and sprint pacing have been adjusted to suit his heavy frame.
 
-Forge starts **locked**. His selection slot shows the game's question-mark presentation until he is discovered. From **Stage 7 onward**, look for the engineering relay in a side bay off the left-hand route on **Celestium's Ethereal Bridge**. It sits beyond the entrance, aligned with the surrounding architecture, with space to approach and operate it. Approach the animated lever to unlock Forge and receive the portrait banner. Map rotation determines when that location appears; Stage 7 is the earliest eligibility, not a guaranteed map visit. Present party members receive the unlock; late arrivals can approach the relay themselves.
+Forge starts **locked**. His selection slot shows the game's question-mark presentation until he is discovered. Whenever you visit **Celestium's Ethereal Bridge**, regardless of stage, look for the engineering relay in a side bay off the left-hand route. It sits beyond the entrance, aligned with the surrounding architecture, with space to approach and operate it. Approach the animated lever to unlock Forge and receive the portrait banner. Map rotation determines when that location appears; every visit can now lead to the unlock. Present party members receive the unlock; late arrivals can approach the relay themselves.
 
 ## Rivet Cannon — primary fire
 
@@ -112,17 +112,21 @@ All three Aspects are **unlocked by default**. They join the game's Aspect selec
 
 These choices can be combined with each other and with the native Aspects. Chaos and Swarm add their spawn bonuses together; they do not multiply each other.
 
+The expansion Aspects are available directly from **Single Player**, with no private-lobby workaround. The Elite Aspect also recovers ordinary elites that receive lethal damage but stall at zero health without completing death. Native rewards and death effects are retained; boss phases and training dummies keep their scripted behavior.
+
 ## Ascendant — let strong builds meet stronger opposition
 
 Ascendant is a separate, optional difficulty switch below the native difficulty choices. It starts **on for a new setup** and remembers an explicit choice. Its clearer button remains visibly clickable when off. It does not count as an Aspect or alter the displayed number of selected Aspects or their completion bonus.
 
-Ascendant measures offensive build growth using **damage, attack speed, and expected critical damage**, relative to the character's starting stats. Solo uses that player's power; co-op uses the **average team power**, so the strongest player does not alone set the challenge for everyone.
+At each combat stage's entry, Ascendant snapshots offensive build growth using **damage, attack speed, and expected critical damage**, relative to the character's starting stats. Solo uses that player's power; co-op uses the **average team power**, so the strongest player does not alone set the challenge for everyone.
 
-New enemies receive a gradually increasing health bonus that grows more slowly than offensive power. Upgrades still make you stronger, while developed builds face more resistance. The latest tuning creates more breathing room: at eight times starting build strength, the Ascendant health factor is **2.12 times**, down from 3.30 times. At sixteen times strength, it is **2.93 times**, down from 5.18 times. The health factor is capped at **25 times** and sits on top of normal enemy scaling.
+The opening stage uses normal difficulty without an Ascendant bonus. From stage 2, the entry snapshot sets one Ascendant health factor and extra-elite chance for the entire stage. Level-ups, purchases, deaths and late joins do not recalculate them during that stage; accumulated build growth takes effect when the next stage loads. Continuing the same saved stage retains its entry snapshot.
+
+Ascendant's **added health bonus and extra-elite chance are 10% lower through average character level 30**. This easing gradually fades across levels 31–50. From level 50, the established formula is unchanged: at eight times starting build strength, health is **2.12 times**; at sixteen times strength, **2.93 times**. The health factor remains capped at **25 times**. The reduction applies to the Ascendant bonus, preserving native baseline health.
 
 Extra elite pressure begins only **above twice starting build power**. Every further doubling adds **three percentage points**, up to **15% extra elite chance** for eligible ordinary spawns. For example, four-times power adds 3%, eight-times adds 6%, and sixteen-times adds 9%. Native elites can still appear before this threshold. The threshold is based on build strength, not stage or elapsed time.
 
-Ascendant focuses on enemy endurance and elite pressure while preserving normal outgoing attack damage for its added elites. It does not reduce item bonuses or continuously rewrite the health of enemies already alive. Native difficulty, enemy abilities, and any separately selected Aspects still apply. Aspect of Elite continues to make every enemy elite regardless of Ascendant's bonus chance.
+Ascendant focuses on enemy endurance and elite pressure while preserving normal outgoing attack damage for its added elites. It does not reduce item bonuses or continuously rewrite the health of enemies already alive. Native difficulty, enemy abilities, and any separately selected Aspects still apply. The separate Aspect of Scaling retains its own spawn-time level calculation. Aspect of Elite continues to make every enemy elite regardless of Ascendant's bonus chance.
 
 ## Shared balance and quality of life
 
@@ -151,7 +155,7 @@ The event tracking behind Forge's visuals no longer grows with every projectile 
 
 The Windows EXE is a complete installation kit: it detects a compatible Gatekeeper installation, installs the full expansion, and provides update, repair, backup, and removal support. There is no content checklist to assemble. Once installed, launch through Steam or the kit's Play button.
 
-This is an **unofficial community expansion**. The base game is required, and official DLC areas still require their official DLC. Everyone in a co-op group needs the same compatible **gameplay version**, currently **0.15.4**. All players should update together for the revised discovery location.
+This is an **unofficial community expansion**. The base game is required, and official DLC areas still require their official DLC. Everyone in a co-op group needs the same compatible **gameplay version**, currently **0.15.8**. All players should update together for the updated Ascendant stage snapshots and discovery requirement.
 
 Forge and Cannon Wheel unlocks are local to each Steam account on that PC; they are not Steam achievements or Steam Cloud unlocks. Installer backups include the expansion's unlock sidecars when present, so keep those with your saves when moving to another computer. Finish runs containing custom content before removing the expansion.
 

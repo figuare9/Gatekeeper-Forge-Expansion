@@ -24,6 +24,7 @@ public sealed class ShopBehaviour : MonoBehaviour
             ForgeRegistry.Tick();
             ForgeLobby.Tick();
             AspectRegistry.Tick();
+            AspectGameplay.Tick();
             AscendantDifficulty.Tick();
             CannonRegistry.Tick();
             SlotNetwork.Tick();

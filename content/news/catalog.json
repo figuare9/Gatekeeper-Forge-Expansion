@@ -10,9 +10,33 @@
           "id": "forge-complete",
           "title": "Forge Expansion: Build Your Stronghold",
           "kind": "Complete expansion notes",
-          "date": "2026-11-07",
-          "version": "0.15.4",
+          "date": "2026-11-13",
+          "version": "0.15.8",
           "file": "forge-complete.md"
+        },
+        {
+          "id": "aspects-0158",
+          "title": "Aspects Ready for Solo Play",
+          "kind": "Gameplay fixes",
+          "date": "2026-11-13",
+          "version": "0.15.8",
+          "file": "aspects-0158.md"
+        },
+        {
+          "id": "ascendant-0157",
+          "title": "Ascendant: Grow Stronger Between Stages",
+          "kind": "Gameplay update",
+          "date": "2026-11-11",
+          "version": "0.15.7",
+          "file": "ascendant-0157.md"
+        },
+        {
+          "id": "unlock-0156",
+          "title": "Discover Forge Whenever the Bridge Appears",
+          "kind": "Gameplay update",
+          "date": "2026-11-11",
+          "version": "0.15.6",
+          "file": "unlock-0156.md"
         },
         {
           "id": "security-0155",

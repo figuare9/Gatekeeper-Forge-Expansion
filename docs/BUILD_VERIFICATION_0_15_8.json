@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-13",
+  "installer": "0.15.8",
+  "gameplay": "0.15.8",
+  "protocol": 12,
+  "sourceFilesByteMatchedToProduction": 156,
+  "sourceChecksPassed": 744,
+  "actualPayloadChecksPassedEachPlatform": 756,
+  "productionWorkspaceAssemblyComparisons": [
+    {
+      "assembly": "Gatekeeper.CustomMods",
+      "version": "0.15.8.0",
+      "methods": 2042,
+      "normalizedMethodBodiesMatch": true,
+      "changedMethods": [],
+      "resources": 60,
+      "resourceDifferences": []
+    },
+    {
+      "assembly": "Gatekeeper.SubtleBalance",
+      "version": "0.1.0.0",
+      "methods": 34,
+      "normalizedMethodBodiesMatch": true,
+      "changedMethods": [],
+      "resources": 0,
+      "resourceDifferences": []
+    },
+    {
+      "assembly": "Manager.Core",
+      "version": "1.0.0.0",
+      "methods": 1154,
+      "normalizedMethodBodiesMatch": true,
+      "changedMethods": [],
+      "resources": 9,
+      "resourceDifferences": []
+    },
+    {
+      "assembly": "Gatekeeper.ModManager",
+      "version": "0.15.8.0",
+      "methods": 170,
+      "normalizedMethodBodiesMatch": true,
+      "changedMethods": [],
+      "resources": 2,
+      "resourceDifferences": [
+        "Gatekeeper.ModManager.Payload.zip"
+      ]
+    },
+    {
+      "assembly": "Gatekeeper.ForgeExpansion.Linux",
+      "version": "0.15.8.0",
+      "methods": 51,
+      "normalizedMethodBodiesMatch": true,
+      "changedMethods": [],
+      "resources": 1,
+      "resourceDifferences": [
+        "Gatekeeper.ModManager.Payload.zip"
+      ]
+    }
+  ],
+  "comparisonScope": "Normalized managed method bodies, local variable types, exception regions and embedded resource hashes; PE/PDB metadata and embedded Payload.zip bytes are not required to match. This is not independent security certification.",
+  "newGameLaunchOrInstallPerformed": false,
+  "newAntivirusScanPerformed": false
+}

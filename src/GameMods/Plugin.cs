@@ -20,7 +20,7 @@ namespace Gatekeeper.CustomMods;
 public sealed class Plugin : BasePlugin
 {
     public const string Id = "local.gatekeeper.custommods";
-    public const string Version = "0.15.4";
+    public const string Version = "0.15.8";
     internal static Plugin? Current;
     internal ConfigEntry<bool> Shop = null!, Slots = null!, Cannon = null!, Forge = null!;
     internal ConfigEntry<bool> PreviewAtMenu = null!;
@@ -102,9 +102,10 @@ public sealed class Plugin : BasePlugin
             File.WriteAllText(StatusFile + ".tmp", JsonSerializer.Serialize(new { state, error, processId = Environment.ProcessId,
                 utc = DateTime.UtcNow, version = Version, metalheads = false, shop = Current?.Shop.Value, slots = Current?.Slots.Value, cannonWheel = Current?.Cannon.Value, cannonItemId = CannonRules.ItemId, forge = Current?.Forge.Value, forgePrototype = true, forgePatched = ForgeRegistry.PatchesReady, forgeRegistered = ForgeRegistry.Info!=null, forgePrefabReady = ForgeRegistry.PrefabReady, forgeMenuReady = ForgeRegistry.MenuReady, forgeError = ForgeRegistry.Error,
                 forgeCustomModels = ForgeAvatar.Count, forgeAssetError = ForgeAvatar.Error,
-                ascendantActive=AscendantDifficulty.Active,ascendantPower=AscendantDifficulty.Power,ascendantError=AscendantDifficulty.Error,
+                ascendantActive=AscendantDifficulty.Active,ascendantPower=AscendantDifficulty.Power,ascendantTeamLevel=AscendantDifficulty.TeamLevel,
+                ascendantFrozenHealth=AscendantDifficulty.FrozenFactors.Health,ascendantFrozenExtraElites=AscendantDifficulty.FrozenFactors.ExtraElites,ascendantError=AscendantDifficulty.Error,
                 expansionAspectsRegistered=AspectRegistry.Registered,expansionAspectsError=AspectRegistry.Error,expansionAspectMechanicsError=AspectGameplay.Error,
-                expansionScaledSpawns=AspectGameplay.ScaledSpawns,expansionForcedElites=AspectGameplay.ForcedElites,
+                expansionScaledSpawns=AspectGameplay.ScaledSpawns,expansionForcedElites=AspectGameplay.ForcedElites,expansionRecoveredEliteDeaths=AspectGameplay.RecoveredDeaths,
                 forgeRivetShots=ForgeWorld.RivetShots,forgeRivetTargets=ForgeWorld.RivetTargets,forgeRivetConfirmed=ForgeWorld.RivetConfirmed,forgeRivetWallStops=ForgeWorld.RivetWallStops,
                 forgeInput=ForgeWorld.InputState,
                 forgeReceiptStreams=ForgeWorld.ReceiptStreams,forgeCombatError=ForgeWorld.CombatError,
@@ -122,7 +123,7 @@ public sealed class Plugin : BasePlugin
         ItemCaps.Restore();
         ForgeUnlock.Clear();
         ForgeWorld.Clear();ForgeAvatar.Clear();ForgeLobby.Detach();forgeHarmony?.UnpatchSelf();
-        ExpansionMusic.Clear();
+        AscendantDifficulty.ClearStage();ExpansionMusic.Clear();
         harmony?.UnpatchSelf(); Current = null; return true;
     }
 }
